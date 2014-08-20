@@ -4,12 +4,12 @@
   app.config(function($routeProvider){
     $routeProvider
       .when('/',
-        {controller: BirdsController, templateUrl: "views/home.html"}
+        {controller: 'BirdsController', templateUrl: "/views/home.html"}
       )
       .when('/birds',
         {
           controller: 'BirdsController',
-          templateUrl: 'views/birds_index.html'
+          templateUrl: '/views/birds_index.html'
         }
       );
   });
