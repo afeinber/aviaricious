@@ -32,7 +32,7 @@ gem 'ebird', :git => "git://github.com/carsonmcdonald/ruby-ebird-wrapper.git"
 
 gem 'wikipedia-client'
 
-gem 'pry'
+
 
 gem 'active_model_serializers'
 
@@ -43,6 +43,7 @@ gem 'autoprefixer-rails'
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'pry-rails'
   gem 'pry-byebug'
   gem 'rspec-rails'
 end
@@ -63,26 +64,6 @@ end
 group :development do
   # Add model attributes
   gem 'annotate'
-
-  gem 'pry-rails'
-  gem 'pry-nav'
-  gem 'pry-stack_explorer'
-
-  # Turn off verbose logging of asset requests
-  gem 'quiet_assets'
-
-  # see Railscast for better_error gem
-  # http://railscasts.com/episodes/402-better-errors-railspanel
-  # FOR sublime text 3 MUST INSTALL sublime-url-protocol-mac, http://goo.gl/8KX1lb
-  # http://goo.gl/8KX1lb
-  gem 'better_errors'
-  gem 'binding_of_caller'
-
-  # Show a rails panel in Chrome. Requires a Chrome extension.
-  # https://github.com/dejan/rails_panel
-  gem 'meta_request'
-  gem 'yaml_dump', github: 'vanboom/yaml_dump'
-
 
 end
 

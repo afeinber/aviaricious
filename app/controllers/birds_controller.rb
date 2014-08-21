@@ -5,7 +5,6 @@ class BirdsController < ApplicationController
     #cache this forever since it will never change
     # unless params['search'].present?
     bird_json = Rails.cache.fetch('birds', expires_in: 10.days) do
-
       Bird.all.to_json
     end
     render json: bird_json

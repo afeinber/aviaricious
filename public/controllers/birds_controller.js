@@ -17,6 +17,10 @@ var BirdsController = function($scope, birdFactory) {
 
     $scope.numShown += 1;
   };
+
+  $scope.photoUrl = function(bird) {
+    return bird.photo_url || '../images/not_available.jpg';
+  };
   // $scope.filterBirds = function(name, type) {
   //   $scope.filteredBirds = $scope.all_birds.filter(function(bird) {
 
@@ -33,6 +37,7 @@ var BirdsController = function($scope, birdFactory) {
         // $scope.all_birds = birds;
         $scope.birds = birds;
         $scope.birds_busy = false;
+        // console.log(birds);
         // $scope.filteredBirds = $scope.all_birds.slice(0, 30);
       })
       .error(function(data, status) {

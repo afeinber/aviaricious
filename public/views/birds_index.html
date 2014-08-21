@@ -7,13 +7,8 @@
   </div>
   {{birdFilter.common_name}}
   <div infinite-scroll='loadMore()'>
-    <div class="panel panel-default" ng-repeat="bird in birds | filter: birdFilter | limitTo: numShown" class="bird" placeholder="Find a bird">
-      <div class="panel-body">
-        <div class="thumb-img">
-          <img src='{{bird.photo_url}}' class="img-responsive">
-        </div>
-        <h4 class="text-center">{{bird.common_name}}</h4>
-      </div>
+    <div class="row" ng-repeat="bird in birds | filter: birdFilter | limitTo: numShown" class="bird">
+      <div ng-include src=" 'views/_bird.html' "></div>
     </div>
 
   </div>

@@ -2,12 +2,18 @@
   padding: 0;
   margin: 0 -2px 0 -2px;
   display: inline-block;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 
   img {
-    margin: 0;
-    height: 200px;
-    width: 200px;
+    margin-top: -15px;
+    height: 180px;
+    width: 170px;
+    margin-left: -14px;
   }
+}
+
+.panel {
+  padding: 0;
+  margin: 0;
 }
