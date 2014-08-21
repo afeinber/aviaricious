@@ -10,4 +10,11 @@
 
 class Bird < ActiveRecord::Base
 
+  def self.search(query, name)
+    if name == 'scientific'
+      Bird.where('scientific_name ILIKE %?%', query)
+    elsif name == 'common'
+      Bird.where('common_name ILIKE %?%', query)
+    end
+  end
 end

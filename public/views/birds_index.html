@@ -1,3 +1,20 @@
-<p>You're in birds</p>
-<a ng-href="/">home</a>
-<h1>kajsdfl</h1>
+<div class="container">
+  <p>You're in birds</p>
+  <a ng-href="/">home</a>
+  <h1>kajsdfl</h1>
+  <div class="form-group">
+    <input type="text" class="form-control" ng-model="birdFilter.common_name" placeholder="Find a bird"/>
+  </div>
+  {{birdFilter.common_name}}
+  <div infinite-scroll='loadMore()'>
+    <div class="panel panel-default" ng-repeat="bird in birds | filter: birdFilter | limitTo: numShown" class="bird" placeholder="Find a bird">
+      <div class="panel-body">
+        <div class="thumb-img">
+          <img src='{{bird.photo_url}}' class="img-responsive">
+        </div>
+        <h4 class="text-center">{{bird.common_name}}</h4>
+      </div>
+    </div>
+
+  </div>
+</div>

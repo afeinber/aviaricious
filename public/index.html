@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html ng-app="aviariciousApp">
   <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/aviaricious.css">
     <!-- Latest compiled and minified CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
-    <script src="../js/angular-route.min.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="js/angular-route.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="../js/ui-bootstrap.min.js"></script>
+    <script src="js/ui-bootstrap.min.js"></script>
+    <script src='js/infinite_scroll.js'></script>
+    <script src="app.js"></script>
+    <script src='services/bird_factory.js'></script>
+    <script src='controllers/birds_controller.js'></script>
 
-
-    <script src="../app.js"></script>
-    <script src='../controllers/birds_controller.js'></script>
 
   </head>
-  <body ng-view></body>
+  <body ng-view><div class="container"></div></body>
 </html>
