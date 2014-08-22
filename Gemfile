@@ -32,8 +32,6 @@ gem 'ebird', :git => "git://github.com/carsonmcdonald/ruby-ebird-wrapper.git"
 
 gem 'wikipedia-client'
 
-
-
 gem 'active_model_serializers'
 
 gem 'bootstrap-sass', '~> 3.2.0'

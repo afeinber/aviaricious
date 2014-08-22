@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html ng-app="aviariciousApp">
   <head>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/aviaricious.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/page-style.css">
+    <link rel="stylesheet" href="css/style-responsive.css">
+
+   <!--  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'> -->
+
+
+    <!-- <link rel="stylesheet" href="css/aviaricious.css"> -->
+
+
     <!-- Latest compiled and minified CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="js/ui-bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src='js/infinite_scroll.js'></script>
     <script src="app.js"></script>
     <script src='services/bird_factory.js'></script>
     <script src='controllers/birds_controller.js'></script>
+    <script src='controllers/navbar_controller.js'></script>
 
 
   </head>
-  <body ng-view><div class="container"></div></body>
+  <body>
+      <div ng-controller="NavbarController">
+        <div ng-include="'/views/_navbar.html'" onload="weDone()"></div>
+      </div>
+    <div ng-view></div>
+    <script src="js/common-scripts.js"></script>
+    <script src="js/daccordion.js"></script>
+    <script src="js/nicescroll.js"></script>
+    <script src="js/sparkline.js"></script>
+  </body>
 </html>

@@ -1,15 +1,18 @@
-<div class="container">
-  <p>You're in birds</p>
-  <a ng-href="/">home</a>
-  <h1>kajsdfl</h1>
-  <div class="form-group">
-    <input type="text" class="form-control" ng-model="birdFilter.common_name" placeholder="Find a bird"/>
-  </div>
-  {{birdFilter.common_name}}
-  <div infinite-scroll='loadMore()'>
-    <div class="row" ng-repeat="bird in birds | filter: birdFilter | limitTo: numShown" class="bird">
-      <div ng-include src=" 'views/_bird.html' "></div>
-    </div>
+<section id="main-content">
+  <section class="wrapper">
+    <div class="row">
+    <div class="col-md-9 col-md-offset-1">
+        <a ng-href="/">home</a>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="birdSearch" ng-change="setFilter()" placeholder="Find a bird"/>
+        </div>
 
-  </div>
-</div>
+        <div infinite-scroll='loadMore()'>
+          <div class="row" ng-repeat="bird in birds | filter: birdFilter | limitTo: numShown" class="bird">
+            <div ng-include src=" 'views/_bird.html' "></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
