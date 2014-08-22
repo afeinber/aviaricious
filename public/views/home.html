@@ -1,2 +1,21 @@
-<p>this is whee</p>
+<section id="main-content">
+  <section class="wrapper">
+
+    <div class="row">
+      <div class="col-md-9 col-md-offset-1">
+        <div class="form-group">
+          <h3 class="text-center">Recent nearby observations</h3>
+        </div>
+
+        <div infinite-scroll='loadMore()'>
+          <div class="row" ng-repeat="observation in observations | limitTo: numShown" class="observations">
+            <div ng-include src="'views/_observation.html' "></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+
 

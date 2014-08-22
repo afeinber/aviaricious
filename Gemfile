@@ -52,6 +52,8 @@ group :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'shoulda-matchers'
+  gem 'webmock'
+  gem 'sinatra-base'
 end
 
 group :production do

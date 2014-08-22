@@ -66,6 +66,8 @@ GEM
       execjs
     coffee-script-source (1.7.1)
     columnize (0.8.9)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     database_cleaner (1.3.0)
     debugger-linecache (1.2.0)
     devise (3.3.0)
@@ -127,6 +129,8 @@ GEM
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     rack (1.5.2)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.4)
@@ -168,6 +172,7 @@ GEM
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.4)
+    safe_yaml (1.0.3)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -179,6 +184,10 @@ GEM
       rdoc (~> 4.0)
     shoulda-matchers (2.6.2)
       activesupport (>= 3.0.0)
+    sinatra-base (1.4.0)
+      rack (~> 1.3, >= 1.3.6)
+      rack-protection (~> 1.2)
+      tilt (~> 1.3, >= 1.3.3)
     slop (3.6.0)
     spring (1.1.3)
     sprockets (2.11.0)
@@ -205,6 +214,9 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    webmock (1.18.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
     websocket-driver (0.3.3)
     wikipedia-client (1.3.3)
     xpath (2.0.0)
@@ -238,7 +250,9 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoulda-matchers
+  sinatra-base
   spring
   turbolinks
   uglifier (>= 1.3.0)
+  webmock
   wikipedia-client

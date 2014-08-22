@@ -1,12 +1,13 @@
 require 'rails_helper'
 
-feature 'user finds birds', js: true do
+feature 'user searches birds', js: true do
   background do
     @birds = create_list(:bird, 30)
   end
 
-  scenario 'and searches by common name' do
+  scenario 'by common name' do
 
+    #i.e. search for 'ardinal' and expect to see 'Cardinal' on page
     last_bird_name = @birds.last.common_name.delete(@birds.last.common_name[0])
 
     visit '/'
@@ -19,7 +20,7 @@ feature 'user finds birds', js: true do
 
   end
 
-  scenario 'and searches by scientific name' do
+  scenario 'by scientific name' do
 
     last_bird_name = @birds.last.scientific_name.delete(@birds.last.scientific_name[0])
 

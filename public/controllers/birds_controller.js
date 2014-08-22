@@ -4,6 +4,7 @@ var BirdsController = function($scope, $location, birdFactory) {
   $scope.birds_busy = true;
   $scope.numShown = 20;
   $scope.birdFilter = {};
+  $('.header').css('position', 'fixed');
 
   //This gets the query string which is what we will be using to
   //determine whether we will filter by scientific or common name

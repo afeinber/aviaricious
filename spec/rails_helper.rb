@@ -11,6 +11,9 @@ end
 
 # Capybara.javascript_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist_debug
+
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
 #Capybara.default_wait_time = 5
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -36,6 +39,10 @@ RSpec.configure do |config|
   # config.use_transactional_fixtures = true
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.before(:each) do
+      stub_request(:get, /ebird.org/).to_rack(FakeEbird)
+    end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

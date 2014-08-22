@@ -4,13 +4,22 @@
   app.config(function($routeProvider){
     $routeProvider
       .when('/',
-        {controller: '', templateUrl: "/views/home.html"}
+        {
+          controller: 'HomeController',
+          templateUrl: "/views/home.html"
+        }
       )
       .when('/birds',
         {
           controller: 'BirdsController',
           templateUrl: '/views/birds_index.html'
         }
-      );
+      )
+      .when('/map',
+      {
+        controller: 'MapController',
+        templateUrl: '/views/map.html'
+      }
+    );
   });
 })();
