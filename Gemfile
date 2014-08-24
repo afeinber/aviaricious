@@ -38,6 +38,8 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'autoprefixer-rails'
 
+gem 'angular_rails_csrf'
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'

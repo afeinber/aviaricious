@@ -1,5 +1,6 @@
 (function HomeIIFE() {
   var HomeController = function($scope, birdFactory,observationsFactory) {
+
     $scope.observations = [];
     $scope.numShown = 15;
     //$('.header').css('position', 'fixed');

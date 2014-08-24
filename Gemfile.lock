@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    angular_rails_csrf (1.0.1)
+      rails (>= 3, < 5)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -227,6 +229,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  angular_rails_csrf
   annotate
   autoprefixer-rails
   bootstrap-sass (~> 3.2.0)
