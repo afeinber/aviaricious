@@ -1,5 +1,5 @@
 (function HomeIIFE() {
-  var HomeController = function($scope, birdFactory,observationsFactory) {
+  var HomeController = function($scope, birdFactory,observationsFactory, Auth) {
 
     $scope.observations = [];
     $scope.numShown = 15;
@@ -54,7 +54,7 @@
     init();
   };
 
-  HomeController.$inject = ['$scope', 'birdFactory', 'observationsFactory'];
+  HomeController.$inject = ['$scope', 'birdFactory', 'observationsFactory', 'Auth'];
 
   angular.module('aviariciousApp').controller('HomeController', HomeController);
 
