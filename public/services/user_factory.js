@@ -7,6 +7,10 @@
       return Auth.register({email: email, password: password});
     };
 
+    factory.signin = function(email, password) {
+      return Auth.login({email: email, password: password});
+    };
+
     return factory;
   };
 

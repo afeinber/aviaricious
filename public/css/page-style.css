@@ -396,7 +396,7 @@ ul.sidebar-menu li a.active i {
 }
 
 /* MAIN CONTENT CONFIGURATION */
-#main-content {
+#main-content, #flashes {
     margin-left: 210px;
 }
 
@@ -2283,4 +2283,13 @@ body {
 }
 #user-form-page {
     margin-top: 80px;
+}
+
+#flashes {
+    /*margin-top: 50px;*/
+    width: 50%;
+    margin: 50px auto 0 auto;
+}
+.sidebar-closed #flashes {
+    margin-left: 0;
 }

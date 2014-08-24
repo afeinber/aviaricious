@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user signs up' do
+feature 'user signs up', js: true do
   background do
     #set location
     visit '/'
