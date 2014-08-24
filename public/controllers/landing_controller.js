@@ -1,13 +1,4 @@
 var LandingController = function($location, Auth, $scope) {
-  // if(Auth.isAuthenticated()) {
-  //   $location.path('#/home');
-  // }
-
-  // Auth.currentUser().then(function(user){
-  //   $location.path('/home');
-  // }, function(error) {
-  //   console.log(error);
-  // });
 
   $scope.$watch('viewContentLoaded', function() {
     $('.fa-bars').hide();

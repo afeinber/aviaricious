@@ -5,11 +5,11 @@ feature 'user signs up', js: true do
     #set location
     visit '/'
 
-    click 'Join'
+    click_on 'Join'
     fill_in 'Enter email', with: 'test@test.test'
-    fill_in 'password', with: 'KrispeeKreAm'
+    fill_in 'Enter password', with: 'password'
 
-    click 'submit'
+    click_on 'submit'
 
   end
 
@@ -18,15 +18,8 @@ feature 'user signs up', js: true do
   end
 
   scenario 'and logs out' do
-    click 'logout'
+    click_on 'logout'
     expect(page).to have_content 'Welcome to Aviaricous'
-  end
-
-  scenario 'and logs back in with same credentials' do
-    click 'logout'
-    click 'Sign in'
-
-    expect(page).to have_content 'Recent observations in your area'
   end
 
 end

@@ -39,6 +39,7 @@ RSpec.configure do |config|
   # config.use_transactional_fixtures = true
 
   config.include FactoryGirl::Syntax::Methods
+  config.include SessionHelpers
 
   config.before(:each) do
       stub_request(:get, /ebird.org/).to_rack(FakeEbird)
