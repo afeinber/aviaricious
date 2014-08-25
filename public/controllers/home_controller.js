@@ -1,5 +1,5 @@
 (function HomeIIFE() {
-  var HomeController = function($scope, birdFactory,observationsFactory, Auth, flashFactory) {
+  var HomeController = function($scope, $location, birdFactory,observationsFactory, Auth, flashFactory) {
 
 
     flashFactory.setMessage({class: "success", message: "hello there"});
@@ -39,13 +39,27 @@
     };
 
     function init() {
-      observationsFactory.getObservations()
-        .success(function(observations) {
-          $scope.observations = observations;
-        })
-        .error(function(data, status) {
-          console.log("error with observations: " + status);
-        });
+      // observationsFactory.getObservations()
+      //   .success(function(observations) {
+      //     $scope.observations = observations;
+      //   })
+      //   .error(function(data, status) {
+      //     console.log("error with observations: " + status);
+      //   });
+
+      Auth.currentUser()
+        .then(function(user) {
+          observationsFactory.getObservations(user.latitude, user.longitude)
+            .success(function(observations) {
+              $scope.observations = observations;
+            })
+            .error(function(data, status) {
+              console.log("error with observations: " + status);
+            });
+          }, function(err) {
+            $location.path('/');
+          }
+        );
 
       birdFactory.getBirds()
         .success(function(_birds) {
@@ -59,7 +73,7 @@
     init();
   };
 
-  HomeController.$inject = ['$scope', 'birdFactory', 'observationsFactory', 'Auth', 'flashFactory'];
+  HomeController.$inject = ['$scope', '$location', 'birdFactory', 'observationsFactory', 'Auth', 'flashFactory'];
 
   angular.module('aviariciousApp').controller('HomeController', HomeController);
 

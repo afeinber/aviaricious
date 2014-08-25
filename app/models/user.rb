@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  geocoded_by :current_sign_in_ip
-  after_save :geocode
+  geocoded_by :current_ip
+  before_update :geocode
+
+  def current_ip
+    current_sign_in_ip.to_s
+  end
 
 end
