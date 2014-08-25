@@ -4,7 +4,8 @@
       var factory = {};
 
       factory.getObservations = function(lat, lng) {
-        return $http.get("http://ebird.org/ws1.1/data/obs/geo/recent?lng="+lng+"&lat="+lat+"&dist=50&back=30&maxResults=100&locale=en_US&fmt=json");
+        // return $http.get("http://ebird.org/ws1.1/data/obs/geo/recent?lng="+lng+"&lat="+lat+"&dist=50&back=30&maxResults=100&locale=en_US&fmt=json");
+        return $http.get("http://ebird.org/ws1.1/data/obs/geo/recent?lng="+ -71.2097 +"&lat="+42.3369+"&dist=50&back=30&maxResults=100&locale=en_US&fmt=json");
       };
 
       factory.getSpeciesObs = function(lat, lng, species) {

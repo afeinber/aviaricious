@@ -5,9 +5,10 @@
     </div>
     <div class="col-md-1"></div>
     <div class="col-md-7">
-      <h4 class="text-center"><a ng-href="#/map?bird={{observation.sciName}}&lat={{observation.lat}}&lng={{observation.lng}}">{{observation.comName}}</a></h4>
+      <h4 class="text-center"><a ng-href="#/bird?sciName={{observation.sciName}}">{{observation.comName}}</a></h4>
       <p>{{observation.sciName}}</p>
       <p>{{observation.locName}}</p>
+      <h5 class="text-center"><a ng-href="#/map?bird={{observation.sciName}}&lat={{observation.lat}}&lng={{observation.lng}}">View on map</a></h4>
     </div>
   </div>
 </div>

@@ -12,4 +12,8 @@ class BirdsController < ApplicationController
       # render json: Bird.search(params['search'], params['name']).to_json
     # end
   end
+
+  def show
+    render json: Bird.find_by(scientific_name: params[:id]).to_json
+  end
 end

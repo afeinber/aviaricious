@@ -17,4 +17,9 @@ class Bird < ActiveRecord::Base
       Bird.where('common_name ILIKE %?%', query)
     end
   end
+
+  def to_param
+    self.scientific_name
+  end
 end
+

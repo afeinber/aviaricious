@@ -42,6 +42,8 @@ gem 'angular_rails_csrf'
 
 gem "geocoder"
 
+gem "httparty"
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'

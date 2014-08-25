@@ -18,7 +18,7 @@
       .when('/birds',
         {
           controller: 'BirdsController',
-          templateUrl: '/views/birds_index.html'
+          templateUrl: '/views/birds_kindex.html'
         }
       )
       .when('/map',
@@ -38,32 +38,15 @@
           controller: 'UserController',
           templateUrl: '/views/signin'
         }
+      )
+      .when('/bird',
+        {
+          controller: 'BirdController',
+          templateUrl: '/views/bird.html'
+        }
       );
   });
 
-  // app.factory("flash", function($rootScope) {
-  //   var nextMessages = [];
-  //   var currentMessages = [];
-  //   var areMessages = false;
-
-  //   $rootScope.$on("$routeChangeSuccess", function(event, next, current) {
-  //     currentMessages = nextMessages;
-  //     nextMessages = [];
-  //     $rootScope.areMessages = currentMessages.length !== 0;
-  //   });
-
-  //   return {
-  //     setMessage: function(message) {
-  //       nextMessages.push(message);
-  //     },
-  //     getMessages: function() {
-  //       return currentMessages;
-  //     },
-  //     getNext: function() {
-  //       return nextMessages;
-  //     }
-  //   };
-  // });
 
   app.run(function(Auth, $location, $rootScope) {
     $rootScope.$on('$locationChangeStart', function(event, next, current) {

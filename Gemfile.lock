@@ -242,6 +242,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   geocoder
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   launchy
