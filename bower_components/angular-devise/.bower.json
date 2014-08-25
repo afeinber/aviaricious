@@ -1,0 +1,34 @@
+{
+  "name": "AngularDevise",
+  "version": "0.5.0",
+  "main": "lib/devise.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "spec",
+    "reports"
+  ],
+  "author": {
+    "name": "Justin Ridgewell"
+  },
+  "dependencies": {
+    "angular": "~1.2.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.0",
+    "angular-scenario": "~1.2.0"
+  },
+  "homepage": "https://github.com/cloudspace/angular_devise",
+  "_release": "0.5.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.5.0",
+    "commit": "1418e659a3e8042fe3c565f0095e67d2e48e6c3e"
+  },
+  "_source": "git://github.com/cloudspace/angular_devise.git",
+  "_target": "~0.5.0",
+  "_originalSource": "angular-devise",
+  "_direct": true
+}

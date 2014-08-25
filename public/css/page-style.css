@@ -396,7 +396,7 @@ ul.sidebar-menu li a.active i {
 }
 
 /* MAIN CONTENT CONFIGURATION */
-#main-content {
+#main-content, #flashes {
     margin-left: 210px;
 }
 
@@ -2241,3 +2241,55 @@ label {
 }
 
 
+
+/*.ng-scope {
+    position: absolute;
+    height: 100%;
+}*/
+html, body { height: 100vh; width: 100%; margin: 0; }
+
+
+
+#big-landing-picture {
+    height: 100%;
+    width: 100vw;
+    background: url("../images/Humming-Bird-Animal-Wallpaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+body {
+    text-align: center;
+}
+
+#sidebar {
+    text-align: left;
+}
+#join-btn, #sign-in-btn {
+
+   margin-bottom: 30px;
+}
+
+#join-btn {
+    margin-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#welcome-text {
+    text-align: center;
+    line-height: 300px;
+    color: white;
+}
+#user-form-page {
+    margin-top: 80px;
+}
+
+#flashes {
+    /*margin-top: 50px;*/
+    width: 50%;
+    margin: 50px auto 0 auto;
+}
+.sidebar-closed #flashes {
+    margin-left: 0;
+}

@@ -1,10 +1,10 @@
 (function() {
 
-    var observationsFactory = function($http) {
+    var observationsFactory = function($http, $location) {
       var factory = {};
 
       factory.getObservations = function(lat, lng) {
-        return $http.get("http://ebird.org/ws1.1/data/obs/geo/recent?lng=-71.12&lat=42.20&dist=50&back=30&maxResults=100&locale=en_US&fmt=json");
+        return $http.get("http://ebird.org/ws1.1/data/obs/geo/recent?lng="+lng+"&lat="+lat+"&dist=50&back=30&maxResults=100&locale=en_US&fmt=json");
       };
 
       factory.getSpeciesObs = function(lat, lng, species) {
@@ -14,7 +14,7 @@
       return factory;
     };
 
-    observationsFactory.$inject = ['$http'];
+    observationsFactory.$inject = ['$http', '$location'];
     angular.module('aviariciousApp').factory('observationsFactory', observationsFactory);
   }
 )();

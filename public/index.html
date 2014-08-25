@@ -19,6 +19,7 @@
     <!-- Latest compiled and minified CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
+    <script src="js/devise-min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -27,10 +28,15 @@
     <script src="app.js"></script>
     <script src='services/bird_factory.js'></script>
     <script src='services/observations_factory.js'></script>
+    <script src='services/user_factory.js'></script>
+    <script src='services/flash_factory.js'></script>
     <script src='controllers/birds_controller.js'></script>
+    <script src='controllers/flash_controller.js'></script>
     <script src='controllers/home_controller.js'></script>
     <script src='controllers/navbar_controller.js'></script>
     <script src='controllers/map_controller.js'></script>
+    <script src='controllers/user_controller.js'></script>
+    <script src='controllers/landing_controller.js'></script>
     <script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPxnVbKrgSUlMI9EptWQvYoORNUunEbrg">
         </script>
@@ -40,7 +46,21 @@
   <body>
       <div ng-controller="NavbarController">
         <div ng-include="'/views/_navbar.html'" onload="weDone()"></div>
+
       </div>
+      <div ng-controller="FlashController" id="flashes" ng-show="flashFactory.areMessages()">
+        <section class="wrapper">
+          <div class="row" ng-repeat="flash in flashFactory.getMessages()">
+            <div class="col-md-9 col-md-offset-1">
+                <div class="alert alert-{{flash.class}} alert-dissmissable">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <p>{{flash.message}}</p>
+                </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
     <div ng-view></div>
     <script src="js/common-scripts.js"></script>
     <script src="js/daccordion.js"></script>
