@@ -2313,7 +2313,7 @@ body {
     width: 100%;
     height: 200px;
     display: inline-block;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 /*  width: 100px;  // change to desired width.
     height: 100px; // change to desired height.
