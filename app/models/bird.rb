@@ -9,7 +9,7 @@
 #
 
 class Bird < ActiveRecord::Base
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   def self.search(query, name)
     if name == 'scientific'

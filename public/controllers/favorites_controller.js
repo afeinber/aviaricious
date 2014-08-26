@@ -23,7 +23,7 @@ var FavoritesController = function($scope, favoritesFactory, Auth, $route) {
 
   $scope.pick = function($event) {
 
-    soundManager.destroySound('aSound');
+    //soundManager.destroySound('aSound');
     if($($event.target).data('id') === $scope.answer) {
       $($event.target).parent().css('background', 'green');
       $($event.target).css('opacity', 0.2);
