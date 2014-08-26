@@ -35,7 +35,7 @@ var FavoritesController = function($scope, favoritesFactory, Auth, $route) {
     setTimeout(function() { $route.reload(); }, 1000);
   };
 
-  function setupSoundManager(song) {
+  function setupSoundManager() {
     soundManager.setup({
       url: '../js/swf',
       flashVersion: 9, // optional: shiny features (default = 8)
@@ -61,6 +61,7 @@ var FavoritesController = function($scope, favoritesFactory, Auth, $route) {
   $scope.$on("$routeChangeStart", function() {
     soundManager.destroySound('aSound');
   });
+  setupSoundManager();
 
 };
 
