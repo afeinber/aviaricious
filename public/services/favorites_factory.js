@@ -1,11 +1,17 @@
 var favoritesFactory = function($http) {
   var factory = {};
   var _favorites = [];
+  factory.hasFavorites = false;
 
-  $http.get("/favorites.json")
-    .success(function(favorites) {
-      _favorites = favorites;
+  factory.getFavorites = function() {
+    return $http.get("/favorites.json")
+      .success(function(favorites) {
+        _favorites = favorites;
+        factory.hasFavorites = true;
     });
+  };
+
+
 
   factory.getFour = function() {
     var four = [];

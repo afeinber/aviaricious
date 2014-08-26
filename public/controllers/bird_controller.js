@@ -43,7 +43,9 @@ var BirdController = function($scope, birdFactory, $location, flashFactory, Auth
       }
     }
   };
-
+  soundManager.setup({
+      url: "../js/swf" ,
+    });
 
 
     // $scope.$on('$viewContentLoaded', function() {

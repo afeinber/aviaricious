@@ -14,7 +14,7 @@ var MapController = function($location, $http, observationsFactory) {
     function initialize() {
       var mapOptions = {
         center: centerPoint,
-        zoom: 8
+        zoom: 12
       };
       var map = new google.maps.Map(document.getElementById("map-canvas"),
          mapOptions);
