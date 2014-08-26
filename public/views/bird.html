@@ -1,10 +1,18 @@
 <section id="main-content">
   <section class="wrapper">
     <div class="row">
-      <div class="col-md-9 col-md-offset-1">
-        <h1>{{bird.common_name}}</h1>
+      <div class="col-md-8 col-md-offset-2">
         <div class="row">
-          <div class="col-md-7 text-right">
+          <h1>{{bird.common_name}}</h1>
+          <i class="fa fa-heart" id="fav-heart" ng-click="favorite()"></i>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="ui360">
+             <a href="{{bird.song}}">play song</a>
+            </div>
+          </div>
+          <div class="col-md-5 text-right">
             <h4>{{bird.scientific_name}}</h4>
           </div>
           <div class="col-md-5 text-right">

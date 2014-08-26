@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/360.css">
     <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/page-style.css">
@@ -30,6 +31,7 @@
     <script src='services/observations_factory.js'></script>
     <script src='services/user_factory.js'></script>
     <script src='services/flash_factory.js'></script>
+    <script src='services/favorites_factory.js'></script>
     <script src='controllers/birds_controller.js'></script>
     <script src='controllers/flash_controller.js'></script>
     <script src='controllers/home_controller.js'></script>
@@ -41,6 +43,12 @@
     <script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPxnVbKrgSUlMI9EptWQvYoORNUunEbrg">
         </script>
+    <script src="js/animator.js"></script>
+    <script src="js/soundmanager.js"></script>
+    <script src="js/360.js"></script>
+    <script> soundManager.setup({
+        url: "../js/swf" ,
+      });</script>
 
 
   </head>
@@ -69,6 +77,6 @@
     <script src="js/sparkline.js"></script>
     <script src="js/scrollTo.js"></script>
     <script src='js/moment.js'></script>
-    <script src="js/soundmanager.js"></script>
+
   </body>
 </html>

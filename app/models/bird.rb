@@ -9,6 +9,7 @@
 #
 
 class Bird < ActiveRecord::Base
+  has_many :favorites
 
   def self.search(query, name)
     if name == 'scientific'

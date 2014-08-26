@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   geocoded_by :current_ip
+  has_many :favorites
   before_update :geocode
 
   def current_ip

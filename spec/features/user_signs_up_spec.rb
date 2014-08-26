@@ -5,6 +5,9 @@ feature 'user signs up', js: true do
     #set location
     visit '/'
 
+    #Do this because of angular devise
+    sleep 0.25
+
     click_on 'Join'
     fill_in 'Enter email', with: 'test@test.test'
     fill_in 'Enter password', with: 'password'

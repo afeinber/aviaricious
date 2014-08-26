@@ -14,6 +14,10 @@ class BirdsController < ApplicationController
   end
 
   def show
-    render json: Bird.find_by(scientific_name: params[:id]).to_json
+    @bird = Bird.find_by(scientific_name: params[:id])
+
+    is_favorite = current_user.favorites.exists?(bird: @bird)
+
+    render json: { bird: @bird, favorite: is_favorite }
   end
 end
