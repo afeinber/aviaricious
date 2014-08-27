@@ -6,8 +6,13 @@ feature 'user views bird observations of a species', js: true do
 
     sign_in_as create(:user)
 
-    sleep 1
-    click_link "Downy Woodpecker"
+    sleep 0.25
+    # save_and_open_page
+    within('.observation', match: :first) do
+
+      find("a.bird-name").click
+    end
+    click_link "Find on map"
     expect(page).to have_css("#map-canvas")
   end
 end

@@ -12,7 +12,7 @@ feature 'user signs up', js: true do
     fill_in 'Enter email', with: 'test@test.test'
     fill_in 'Enter password', with: 'password'
 
-    click_on 'submit'
+    click_on 'Submit'
 
   end
 
@@ -21,8 +21,8 @@ feature 'user signs up', js: true do
   end
 
   scenario 'and logs out' do
-    click_on 'logout'
-    expect(page).to have_content 'Welcome to Aviaricous'
+    click_on 'Logout'
+    expect(page).to have_content 'Welcome to Aviaricious'
   end
 
 end

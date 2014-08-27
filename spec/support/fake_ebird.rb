@@ -4,7 +4,7 @@ class FakeEbird < Sinatra::Base
 
   get '/ws1.1/data/obs/geo/recent' do
     json_response 200, 'recent_birds.json'
-    end
+  end
 
     private
 

@@ -37,7 +37,7 @@ var FavoritesController = function($scope, favoritesFactory, Auth, $route) {
 
   function setupSoundManager() {
     soundManager.setup({
-      url: '../js/swf',
+      url: '/js/swf',
       flashVersion: 9, // optional: shiny features (default = 8)
       // optional: ignore Flash where possible, use 100% HTML5 mode
       preferFlash: false,

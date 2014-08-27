@@ -34,13 +34,6 @@
     };
 
     function init() {
-      // observationsFactory.getObservations()
-      //   .success(function(observations) {
-      //     $scope.observations = observations;
-      //   })
-      //   .error(function(data, status) {
-      //     console.log("error with observations: " + status);
-      //   });
 
       Auth.currentUser()
         .then(function(user) {

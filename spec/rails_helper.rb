@@ -5,6 +5,9 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require 'webmock/rspec'
+
+WebMock.disable_net_connect!(allow_localhost: true)
 Capybara.register_driver :poltergeist_debug do |app|
   Capybara::Poltergeist::Driver.new(app, :inspector => true)
 end
@@ -12,8 +15,8 @@ end
 # Capybara.javascript_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist_debug
 
-require 'webmock/rspec'
-WebMock.disable_net_connect!(allow_localhost: true)
+
+
 #Capybara.default_wait_time = 5
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
