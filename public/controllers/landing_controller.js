@@ -9,6 +9,11 @@ var LandingController = function($location, Auth, $scope) {
     $('.fa-bars').show();
     $('#sidebar').show();
   });
+
+  Auth.currentUser()
+    .then(function(user) {
+      $location.path("/home");
+    });
 };
 
 LandingController.$inject = ['$location', 'Auth', '$scope'];

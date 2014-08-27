@@ -6,6 +6,7 @@ var NavbarController = function($scope, Auth, $location, flashFactory, $route) {
     if($('#sidebar').css('margin-left')!=='0px') {
       $('.fa-bars').trigger('click');
     }
+    $scope.userExists = true;
 
     $(document).trigger('doneWithHeader');
   };
@@ -18,6 +19,17 @@ var NavbarController = function($scope, Auth, $location, flashFactory, $route) {
       $route.reload();
     });
   };
+  // $scope.$on('$routeChangeStart', function() {
+  //   Auth.currentUser().then(function(user) {
+  //     $scope.userExists = true;
+  //   });
+  // });
+  $scope.$on('devise:unauthorized', function(event){
+    $scope.userExists = false;
+  });
+  $scope.$on('devise:logout', function(event){
+    $scope.userExists = false;
+  });
 };
 
 NavbarController.$inject = ['$scope', 'Auth', '$location', 'flashFactory', '$route'];
