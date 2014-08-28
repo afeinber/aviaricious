@@ -5,13 +5,22 @@
         <!-- <div class="form-group"> -->
           <h3 class="text-center">Recent nearby observations</h3>
         <!-- </div> -->
-          <div class="btn-group"><p>Distance (km)</p>
-            <button type="button" ng-click="getObservations(5, $event)" class="btn btn-default">5</button>
-            <button type="button" ng-click="getObservations(10, $event)" class="btn btn-default">10</button>
-            <button type="button" ng-click="getObservations(20, $event)" class="btn btn-default">20</button>
-            <button type="button" ng-click="getObservations(30, $event)" class="btn btn-default">30</button>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="btn-group distance-group"><p>Distance (km)</p>
+                <button type="button" ng-click="selectDistance(5, $event)" class="btn btn-default">5</button>
+                <button type="button" ng-click="selectDistance(10, $event)" class="btn btn-default">10</button>
+                <button type="button" ng-click="selectDistance(20, $event)" class="btn btn-default">20</button>
+                <button type="button" ng-click="selectDistance(30, $event)" class="btn btn-default">30</button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="btn-group notable-group"><p>selection</p>
+                <button type="button" ng-click="selectNotable(true, $event)" class="btn btn-default">Notable</button>
+                <button type="button" ng-click="selectNotable(false, $event)" class="btn btn-default active">All birds</button>
+              </div>
+            </div>
           </div>
-
         <div infinite-scroll='loadMore()'>
           <div class="row" ng-repeat="observation in observations | limitTo: numShown" class="observations">
             <div ng-include src="'views/_observation.html' "></div>

@@ -14,6 +14,7 @@
     var birds = [];
     var distance;
     var currentUser;
+    var notableOnly = false;
 
     $('.header').css('position', 'fixed');
     $('#sidebar').css('z-index', '0');
@@ -42,16 +43,38 @@
 
     // $scope.getNotableObs = function(dist)
 
-    $scope.getObservations = function(dist, $event) {
-      $($event.target).addClass('active');
-      observationsFactory.getObservations(
-        currentUser.latitude,
-        currentUser.longitude,
-        dist
-      ).success(function(observations) {
-        $scope.observations = observations;
-      });
+    $scope.selectDistance = function(dist, $event) {
+      $('.distance-group .btn').removeClass('active');
+      distance = dist;
+      if($event) { $($event.target).addClass('active'); }
+      getObservations();
+    };
 
+    $scope.selectNotable = function(isNotable, $event) {
+      $('.notable-group .btn').removeClass('active');
+      $($event.target).addClass('active');
+      notableOnly = isNotable;
+      getObservations();
+    };
+
+    var getObservations = function() {
+      var observationsProm;
+      if(notableOnly) {
+        observationsProm = observationsFactory.getNotable(
+          currentUser.latitude,
+          currentUser.longitude,
+          distance
+        );
+      } else {
+        observationsProm = observationsFactory.getObservations(
+          currentUser.latitude,
+          currentUser.longitude,
+          distance
+        );
+      }
+      observationsProm.success(function(obs){
+        $scope.observations = obs;
+      });
     };
 
     function init() {
@@ -59,7 +82,7 @@
       Auth.currentUser()
         .then(function(user) {
             currentUser = user;
-            $scope.getObservations(distance);
+            getObservations();
           }, function(err) {
             $location.path('/');
           }
