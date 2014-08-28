@@ -30,6 +30,12 @@ var NavbarController = function($scope, Auth, $location, flashFactory, $route) {
   $scope.$on('devise:logout', function(event){
     $scope.userExists = false;
   });
+  $scope.$on('devise:login', function(event, currentUser) {
+    $scope.userExists = true;
+  });
+ $scope.$on('devise:new-session', function(event, currentUser) {
+     $scope.userExists = true;
+  });
 };
 
 NavbarController.$inject = ['$scope', 'Auth', '$location', 'flashFactory', '$route'];

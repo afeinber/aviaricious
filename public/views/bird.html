@@ -1,21 +1,21 @@
 <section id="main-content">
+
   <section class="wrapper">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="row">
+        <audio id="bird-song" type="audio/mp3" ng-src="{{song}}"></audio>
           <h1>{{bird.common_name}}</h1>
           <i class="fa fa-heart" id="fav-heart" ng-click="favorite()"></i>
         </div>
         <div class="row">
-          <div class="col-md-2">
-            <div class="ui360">
-             <a href="{{bird.song}}">play song</a>
-            </div>
+          <div class="col-md-4 text-left">
+            <i class="fa fa-play" ng-click="play()"></i>
           </div>
-          <div class="col-md-5 text-right">
+          <div class="col-md-4 text-center">
             <h4>{{bird.scientific_name}}</h4>
           </div>
-          <div class="col-md-5 text-right">
+          <div class="col-md-4 text-right">
             <a type="button" ng-href="#/map?bird={{bird.scientific_name}}&lat={{user.latitude}}&lng={{user.longitude}}" class="btn btn-default">Find on map</a>
           </div>
         </div>
