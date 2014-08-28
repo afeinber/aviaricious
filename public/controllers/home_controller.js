@@ -1,10 +1,19 @@
 (function HomeIIFE() {
-  var HomeController = function($scope, $location, birdFactory,observationsFactory, Auth, flashFactory) {
+  var HomeController = function(
+    $scope,
+    $location,
+    birdFactory,
+    observationsFactory,
+    Auth,
+    flashFactory
+  ) {
 
     $scope.observations = [];
     $scope.numShown = 15;
     //$('.header').css('position', 'fixed');
     var birds = [];
+    var distance;
+    var currentUser;
 
     $('.header').css('position', 'fixed');
     $('#sidebar').css('z-index', '0');
@@ -13,9 +22,7 @@
       $('.fa-bars').trigger('click');
     }
 
-
-
-
+    //This is for the infinite scroll when we reach the bottom of the page
     $scope.loadMore = function() {
       $scope.numShown += 1;
     };
@@ -33,22 +40,32 @@
       return bird.photo_url || '../images/not_available.jpg';
     };
 
-    function init() {
+    // $scope.getNotableObs = function(dist)
 
+    $scope.getObservations = function(dist, $event) {
+      $($event.target).addClass('active');
+      observationsFactory.getObservations(
+        currentUser.latitude,
+        currentUser.longitude,
+        dist
+      ).success(function(observations) {
+        $scope.observations = observations;
+      });
+
+    };
+
+    function init() {
+      distance = 15;
       Auth.currentUser()
         .then(function(user) {
-          observationsFactory.getObservations(user.latitude, user.longitude)
-            .success(function(observations) {
-              $scope.observations = observations;
-            })
-            .error(function(data, status) {
-              console.log("error with observations: " + status);
-            });
+            currentUser = user;
+            $scope.getObservations(distance);
           }, function(err) {
             $location.path('/');
           }
         );
 
+      //get the birds from the back end servers so we can have their photos
       birdFactory.getBirds()
         .success(function(_birds) {
           birds = _birds;
@@ -61,8 +78,18 @@
     init();
   };
 
-  HomeController.$inject = ['$scope', '$location', 'birdFactory', 'observationsFactory', 'Auth', 'flashFactory'];
+  HomeController.$inject = [
+    '$scope',
+    '$location',
+    'birdFactory',
+    'observationsFactory',
+    'Auth',
+    'flashFactory'
+  ];
 
-  angular.module('aviariciousApp').controller('HomeController', HomeController);
+  angular.module('aviariciousApp').controller(
+    'HomeController',
+    HomeController
+  );
 
 })();
