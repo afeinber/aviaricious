@@ -1,4 +1,6 @@
-var FavoritesController = function($sce, $scope, favoritesFactory, Auth, $route) {
+var FavoritesController = function(scoreFactory, $location, $sce, $scope, favoritesFactory, Auth, $route) {
+
+  var gameLength = 10;
 
   if(!favoritesFactory.hasFavorites) {
     favoritesFactory.getFavorites()
@@ -16,8 +18,16 @@ var FavoritesController = function($sce, $scope, favoritesFactory, Auth, $route)
   }
 
   $scope.pick = function($event) {
+    favoritesFactory.incrementCount();
+    if(favoritesFactory.getCount() >= gameLength) {
+      scoreFactory.createScore((favoritesFactory.getNumCorrect() / gameLength) * 100)
+        .success(function() {
+          $location.path("/scores");
+        });
+    }
 
     if($($event.target).data('id') === $scope.answer) {
+      favoritesFactory.incrementNumCorrect();
       $($event.target).parent().css('background', 'green');
       $($event.target).css('opacity', 0.2);
     } else {
@@ -27,6 +37,7 @@ var FavoritesController = function($sce, $scope, favoritesFactory, Auth, $route)
       $('*[data-id=' + $scope.answer +']').css('opacity', 0.2);
     }
 
+    //reload the page with new birds
     setTimeout(function() { $route.reload(); }, 1000);
   };
 
@@ -36,5 +47,5 @@ var FavoritesController = function($sce, $scope, favoritesFactory, Auth, $route)
 
 };
 
-FavoritesController.$inject = ["$sce", "$scope", "favoritesFactory", "Auth", "$route"];
+FavoritesController.$inject = ["scoreFactory", "$location", "$sce", "$scope", "favoritesFactory", "Auth", "$route"];
 angular.module("aviariciousApp").controller("FavoritesController", FavoritesController);

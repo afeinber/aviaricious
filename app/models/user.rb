@@ -4,8 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  geocoded_by :current_ip
   has_many :favorites, dependent: :destroy
+  has_many :scores, dependent: :destroy
+
+  geocoded_by :current_ip
   before_update :geocode
 
   def current_ip

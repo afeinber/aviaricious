@@ -50,6 +50,12 @@
           controller: "FavoritesController",
           templateUrl: "/views/favorites"
         }
+      )
+      .when('/scores',
+        {
+          controller: 'ScoresController',
+          templateUrl: '/views/scores'
+        }
       );
   });
 

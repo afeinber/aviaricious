@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826002408) do
+ActiveRecord::Schema.define(version: 20140828135009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20140826002408) do
 
   add_index "favorites", ["bird_id"], name: "index_favorites_on_bird_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+
+  create_table "scores", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "percent",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scores", ["user_id"], name: "index_scores_on_user_id", using: :btree
 
   create_table "tracks", force: true do |t|
     t.integer "bird_id", null: false

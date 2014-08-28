@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resource :favorite, only: [:create, :destroy]
   end
 
+  resources :scores, only: [:index, :create, :show]
+
   resources :favorites, only: :index
 
 end

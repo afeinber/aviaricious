@@ -15,6 +15,6 @@ class FavoritesController < ApplicationController
   end
 
   def index
-    respond_with current_user.favorites.map(&:bird)
+    respond_with current_user.favorites.includes(:bird).map(&:bird)
   end
 end

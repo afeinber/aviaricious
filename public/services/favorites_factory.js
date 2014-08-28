@@ -1,6 +1,9 @@
 var favoritesFactory = function($http) {
   var factory = {};
   var _favorites = [];
+  var count = 0;
+  var numCorrect = 0;
+
   factory.hasFavorites = false;
 
   factory.getFavorites = function() {
@@ -11,7 +14,21 @@ var favoritesFactory = function($http) {
     });
   };
 
+  factory.getNumCorrect = function() {
+    return numCorrect;
+  };
 
+  factory.incrementNumCorrect = function() {
+    numCorrect += 1;
+  };
+
+  factory.getCount = function() {
+    return count;
+  };
+
+  factory.incrementCount = function() {
+    count += 1;
+  };
 
   factory.getFour = function() {
     var four = [];
