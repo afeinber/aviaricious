@@ -2293,7 +2293,7 @@ body {
 .sidebar-closed #flashes {
     margin-left: 0;
 }
-.fav-bird{
+.game-bird{
     width: 100%;
     height: 100%;
     background-size: 350px;
@@ -2302,7 +2302,7 @@ body {
     margin-bottom: 20px;
 }
 
-#favorites-page {
+#game-page {
     margin-top: 20px;
 }
 

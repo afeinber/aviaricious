@@ -18,7 +18,7 @@ var favoritesFactory = function($http) {
     return numCorrect;
   };
 
-  factory.incrementNumCorrect = function() {
+  factory.incrementCount = function() {
     numCorrect += 1;
   };
 

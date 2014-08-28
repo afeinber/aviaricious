@@ -45,10 +45,10 @@
           templateUrl: '/views/bird.html'
         }
       )
-      .when('/favorites',
+      .when('/game',
         {
-          controller: "FavoritesController",
-          templateUrl: "/views/favorites"
+          controller: "GameController",
+          templateUrl: "/views/game"
         }
       )
       .when('/scores',

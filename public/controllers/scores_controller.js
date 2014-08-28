@@ -26,10 +26,7 @@
               },
               xAxis: {
                   type: 'datetime',
-                  // dateTimeLabelFormats: { // don't display the dummy year
-                  //    day: '%a'
-                  //    // time: '%:%M'
-                  // },
+
                   title: {
                      text: 'Date'
                   }
