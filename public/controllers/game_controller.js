@@ -8,12 +8,16 @@ var GameController = function(
   $route
 ) {
 
+
   var gameLength = 10;
   var roundCount = 0;
   var numCorrect = 0;
   loadNewBirds();
 
 
+  Auth.currentUser().then(function(user){
+    ///
+  });
   //get four more birds from the factory.
   function loadNewBirds() {
     $('.img-holder').css('background', "");
