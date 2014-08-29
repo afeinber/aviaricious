@@ -16,12 +16,12 @@
     var currentUser;
     var notableOnly = false;
 
-    $('.header').css('position', 'fixed');
-    $('#sidebar').css('z-index', '0');
-    $('ul.sidebar-menu').css('margin-top', '75px;');
-    if($('#sidebar').css('margin-left')!=='0px') {
-      $('.fa-bars').trigger('click');
-    }
+    // $('.header').css('position', 'fixed');
+    // $('#sidebar').css('z-index', '0');
+    // $('ul.sidebar-menu').css('margin-top', '75px;');
+    // if($('#sidebar').css('margin-left')!=='0px') {
+    //   $('.fa-bars').trigger('click');
+    // }
 
     //This is for the infinite scroll when we reach the bottom of the page
     $scope.loadMore = function() {

@@ -2315,6 +2315,21 @@ body {
     display: inline-block;
     /*overflow: auto;*/
 }
+
+.sticky-footer{
+  background: rgba(255, 255, 255, 0.74);
+  height: 110px;
+  font-size:24px;
+  margin-top: 60px;
+  text-align: right;
+  padding-right: 50px;
+  padding-top: 25px;
+}
+
+.sticky-footer p {
+    padding-top: 5px;
+    font-size: 12px;
+}
 /*  width: 100px;  // change to desired width.
     height: 100px; // change to desired height.
     background-position: center center;

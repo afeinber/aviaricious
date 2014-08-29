@@ -12,24 +12,12 @@ var GameController = function(
   var roundCount = 0;
   var numCorrect = 0;
   loadNewBirds();
+
+
   //get four more birds from the factory.
   function loadNewBirds() {
     $('.img-holder').css('background', "");
     $('.game-bird').css('opacity', '');
-    // if(!favoritesFactory.hasFavorites) {
-    //   favoritesFactory.getFavorites()
-    //     .success(function() {
-    //       $scope.four = favoritesFactory.getFour();
-    //       $scope.answer = Math.floor(Math.random() *4);
-    //       $scope.song = $sce.trustAsResourceUrl($scope.four[$scope.answer].song);
-    //     });
-    // } else {
-    //   $scope.$apply(function() {
-    //     $scope.four = favoritesFactory.getFour();
-    //     $scope.answer = Math.floor(Math.random() *4);
-    //     $scope.song = $sce.trustAsResourceUrl($scope.four[$scope.answer].song);
-    //   });
-    // }
 
     birdFactory.getBirds()
       .then(function(birds){
@@ -86,5 +74,13 @@ var GameController = function(
 
 };
 
-GameController.$inject = ["scoreFactory", "$location", "$sce", "$scope", "birdFactory", "Auth", "$route"];
+GameController.$inject = [
+  "scoreFactory",
+  "$location",
+  "$sce",
+  "$scope",
+  "birdFactory",
+  "Auth",
+  "$route"
+];
 angular.module("aviariciousApp").controller("GameController", GameController);

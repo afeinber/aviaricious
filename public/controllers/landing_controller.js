@@ -14,8 +14,16 @@ var LandingController = function($location, Auth, $scope) {
     .then(function(user) {
       $location.path("/home");
     });
+
+
+  //$('.header').css('position', 'relative');
+  $('#sidebar').css('z-index', '1');
+  $('ul.sidebar-menu').css('margin-top', '0');
+  $('.fa-bars').trigger('click');
+
 };
 
 LandingController.$inject = ['$location', 'Auth', '$scope'];
 
-angular.module('aviariciousApp').controller('LandingController', LandingController);
+angular.module('aviariciousApp').
+  controller('LandingController', LandingController);

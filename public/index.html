@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/page-style.css">
+
     <link rel="stylesheet" href="css/style-responsive.css">
+    <!-- <link rel="stylesheet" href="css/gritter.css"> -->
+    <link rel="stylesheet" href="css/page-style.css">
 
    <!--  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'> -->
@@ -24,7 +26,6 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src='js/infinite_scroll.js'></script>
     <script src="app.js"></script>
     <script src='services/bird_factory.js'></script>
     <script src='services/observations_factory.js'></script>
@@ -53,27 +54,33 @@
         <div ng-include="'/views/_navbar.html'" onload="weDone()"></div>
 
       </div>
-      <div ng-controller="FlashController" id="flashes" ng-show="flashFactory.areMessages()">
-        <section class="wrapper">
-          <div class="row" ng-repeat="flash in flashFactory.getMessages()">
-            <div class="col-md-9 col-md-offset-1">
-                <div class="alert alert-{{flash.class}} alert-dissmissable">
-                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <p>{{flash.message}}</p>
+        <section id="main-content">
+          <div ng-controller="FlashController" id="flashes" ng-show="flashFactory.areMessages()">
+            <section class="wrapper">
+              <div class="row" ng-repeat="flash in flashFactory.getMessages()">
+                <div class="col-md-9 col-md-offset-1">
+                    <div class="alert alert-{{flash.class}} alert-dissmissable">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <p>{{flash.message}}</p>
+                    </div>
                 </div>
-            </div>
+              </div>
+            </section>
           </div>
-        </section>
-      </div>
 
-    <div ng-view></div>
+        <div ng-view></div>
+
+    </section>
+    <!-- <script src="js/common-scripts.js"></script> -->
+    <script class="include" src="js/daccordion.js"></script>
     <script src="js/common-scripts.js"></script>
-    <script src="js/daccordion.js"></script>
+    <script src='js/infinite_scroll.js'></script>
     <script src="js/nicescroll.js"></script>
     <script src="js/sparkline.js"></script>
     <script src="js/scrollTo.js"></script>
     <script src='js/moment.js'></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
+    <!-- <script src="js/gritter.js"></script> -->
     <!-- <script src="http://code.highcharts.com/modules/exporting.js"></script> -->
 
   </body>

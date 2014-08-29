@@ -1,4 +1,13 @@
-var BirdController = function($sce, $scope, birdFactory, $location, flashFactory, Auth, $route, favoritesFactory) {
+var BirdController = function(
+  $sce,
+  $scope,
+  birdFactory,
+  $location,
+  flashFactory,
+  Auth,
+  $route,
+  favoritesFactory
+) {
 
   var isBusy = true;
 
@@ -35,6 +44,7 @@ var BirdController = function($sce, $scope, birdFactory, $location, flashFactory
   };
 
   $scope.favorite = function() {
+    //make sure you don't favorite something twice before the server responds
     if(!isBusy) {
       isBusy = true;
       if($scope.isFavorite) {
@@ -55,12 +65,16 @@ var BirdController = function($sce, $scope, birdFactory, $location, flashFactory
       }
     }
   };
-
-
-    // $scope.$on('$viewContentLoaded', function() {
-    //   $(document).trigger('readyToPlay');
-    // });
 };
 
-BirdController.$inject = ["$sce", "$scope", "birdFactory", "$location", "flashFactory", "Auth", "$route", "favoritesFactory"];
+BirdController.$inject = [
+  "$sce",
+  "$scope",
+  "birdFactory",
+  "$location",
+  "flashFactory",
+  "Auth",
+  "$route",
+  "favoritesFactory"
+];
 angular.module("aviariciousApp").controller("BirdController", BirdController);

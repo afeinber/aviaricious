@@ -1,18 +1,17 @@
-<section id="main-content">
+<!-- <section id="main-content"> -->
   <section class="wrapper">
     <div class="row">
-    <div class="col-md-9 col-md-offset-1">
-        <a ng-href="/">home</a>
+      <div class="col-md-9 col-md-offset-1">
         <div class="form-group">
-          <input type="text" class="form-control" ng-model="birdSearch" ng-change="setFilter()" placeholder="Find a bird"/>
+          <input type="text" class="form-control" ng-model="birdSearch" ng-change="setFilter()" placeholder="Find a bird" style="margin-top:40px;" />
         </div>
 
         <div infinite-scroll='loadMore()'>
           <div class="row" ng-repeat="bird in birds | filter: birdFilter | limitTo: numShown" class="bird">
-            <div ng-include src="'views/_bird.html' "></div>
+            <div ng-include src="'views/_bird.html'"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
-</section>
+<!-- </section> -->
