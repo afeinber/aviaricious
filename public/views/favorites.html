@@ -1,5 +1,6 @@
 <section class="wrapper">
   <div class="row">
+    <h1>Your favorite birds</h1>
     <div class="col-md-9 col-md-offset-1">
       <div infinite-scroll='loadMore()'>
         <div class="row" ng-repeat="bird in birds | filter: birdFilter | limitTo: numShown" class="bird">
