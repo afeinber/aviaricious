@@ -1,0 +1,12 @@
+<section class="wrapper">
+  <div class="row">
+    <div class="col-md-9 col-md-offset-1">
+      <div infinite-scroll='loadMore()'>
+        <div class="row" ng-repeat="bird in birds | filter: birdFilter | limitTo: numShown" class="bird">
+          <div ng-include src="'views/_bird.html'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

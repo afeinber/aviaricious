@@ -1,7 +1,7 @@
 var favoritesFactory = function($http) {
   var factory = {};
 
-  factory.getFavorites = function() {
+  factory.getBirds = function() {
     return $http.get("/favorites.json");
   };
 
