@@ -41,7 +41,9 @@ var GameController = function(
   }
 
   $scope.pick = function($event) {
-    $("#bird-song")[0].pause();
+    if($("#bird-song")[0].pause) {
+      $("#bird-song")[0].pause();
+    }
     roundCount++;
 
     if(roundCount >= gameLength) {
@@ -73,7 +75,9 @@ var GameController = function(
 
   //make sure we stop the song on new route
   $scope.$on("$routeChangeStart", function() {
-    $("#bird-song")[0].pause();
+    if($("#bird-song")[0].pause) {
+      $("#bird-song")[0].pause();
+    }
   });
 
 };
