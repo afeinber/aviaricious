@@ -6,7 +6,7 @@
         <div class="row">
         <audio id="bird-song" type="audio/mp3" ng-src="{{song}}"></audio>
           <h1>{{bird.common_name}}</h1>
-          <a class="fa fa-heart" id="fav-heart" ng-click="favorite()"></a>
+          <i class="fa fa-heart" id="fav-heart" ng-click="favorite()"></i>
         </div>
         <div class="row">
           <div class="col-md-4 text-left">
@@ -19,7 +19,7 @@
             <a type="button" ng-href="#/map?bird={{bird.scientific_name}}&lat={{user.latitude}}&lng={{user.longitude}}" class="btn btn-default">Find on map</a>
           </div>
         </div>
-        <img ng-src="{{bird.photo_url}}" class="img-responsive">
+        <img style="margin: 0 auto;" ng-src="{{bird.photo_url}}" class="img-responsive">
 
       </div>
     </div>
