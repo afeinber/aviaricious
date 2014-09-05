@@ -10,6 +10,9 @@ var flashFactory = function($rootScope, $location) {
   });
 
   return {
+    setNowMessage: function(message) {
+      currentMessages.push(message);
+    },
     setMessage: function(message) {
       nextMessages.push(message);
     },

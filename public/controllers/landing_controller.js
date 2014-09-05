@@ -1,6 +1,6 @@
 var LandingController = function($location, Auth, $scope) {
 
-  $scope.$watch('viewContentLoaded', function() {
+  $scope.$on('$viewContentLoaded', function() {
     $('.fa-bars').hide();
     $('#sidebar').hide();
   });

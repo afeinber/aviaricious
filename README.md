@@ -30,7 +30,7 @@ I used the following technologies and API's for my app:
 
 ## Issues
 
-* Sometimes the sidebar will display on the landing page, which I don't want it to. (Just refresh for the full Aviaricious experience)
+* Sometimes the sidebar will display on the landing page, which I don't want it to. (Just refresh for the full Aviaricious experience) ** Fixed (I hope) **
 * In the game I crop the images, and a lot of the time it crops them badly (I need to find my own images and preprocess them, if I were to put this into real production)
 
 

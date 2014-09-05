@@ -1,6 +1,17 @@
 (function() {
   var UserController = function($scope, userFactory, $location, flashFactory) {
 
+    $scope.$on('$viewContentLoaded', function() {
+      $('.fa-bars').hide();
+      $('#sidebar').hide();
+    });
+
+    $scope.$on('$routeChangeStart', function(next, current) {
+      $('.fa-bars').show();
+      $('#sidebar').show();
+    });
+
+
     $scope.sendRegistration = function() {
       userFactory.signup($scope.email, $scope.password)
         .then(function(registeredUser){
@@ -12,7 +23,7 @@
 
           $location.path("/home");
         }, function(err) {
-          flashFactory.setMessage(
+          flashFactory.setNowMessage(
             {
               class: "danger",
               message: "Something went wrong. Maybe you have already registered?"
@@ -26,7 +37,7 @@
         .then(function(user){
           $location.path("/home");
         }, function(err) {
-          flashFactory.setMessage(
+          flashFactory.setNowMessage(
             {
               class: "danger",
               message: "Your email or password is incorrect. Please try again."

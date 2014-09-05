@@ -1,5 +1,6 @@
 namespace :birds do
 
+  #note: please run the add bird images rake task first.
   desc 'remove the stupid images which wikipedia provides'
   task :remove_stupid_images => :environment do
     require 'wikipedia'
@@ -18,6 +19,7 @@ namespace :birds do
 
     Bird.all.each do |bird|
       count = 0
+      # these are the stupid ones
       while bird.photo_url =~ /.*(\.ogg|\.svg).*/
         count += 1
         image = Wikipedia.find(bird.scientific_name).images[count]

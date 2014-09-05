@@ -3,10 +3,12 @@ var birdListControllerFactory = function() {
 
   factory = {};
 
-  factory.controllerProto = function($scope, someFactory, $location) {
+  factory.controllerProto = function($scope, someFactory, $location, Auth) {
     $scope.birds = [];
     $scope.birds_busy = true;
     $scope.numShown = 20;
+
+    Auth.currentUser();
 
     $scope.loadMore = function() {
       $scope.numShown += 1;
