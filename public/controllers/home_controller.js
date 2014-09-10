@@ -5,7 +5,8 @@
     birdFactory,
     observationsFactory,
     Auth,
-    flashFactory
+    flashFactory,
+    $rootScope
   ) {
 
     $scope.observations = [];
@@ -13,7 +14,6 @@
 
     var birds = [];
     var distance;
-    var currentUser;
     var notableOnly = false;
 
     //This is for the infinite scroll when we reach the bottom of the page
@@ -52,14 +52,14 @@
       var observationsProm;
       if(notableOnly) {
         observationsProm = observationsFactory.getNotable(
-          currentUser.latitude,
-          currentUser.longitude,
+          $rootScope.user.latitude,
+          $rootScope.user.longitude,
           distance
         );
       } else {
         observationsProm = observationsFactory.getObservations(
-          currentUser.latitude,
-          currentUser.longitude,
+          $rootScope.user.latitude,
+          $rootScope.user.longitude,
           distance
         );
       }
@@ -72,9 +72,8 @@
       distance = 15;
       Auth.currentUser()
         .then(function(user) {
+            $rootScope.user = user;
             getObservations();
-          }, function(err) {
-            $location.path('/');
           }
         );
 
@@ -97,7 +96,8 @@
     'birdFactory',
     'observationsFactory',
     'Auth',
-    'flashFactory'
+    'flashFactory',
+    '$rootScope'
   ];
 
   angular.module('aviariciousApp').controller(

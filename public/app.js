@@ -78,15 +78,15 @@
     });
 
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
-      if (!window.routes[next.originalPath].access.allowAnonymous && !$rootScope.user) {
-        //if its a refresh then ignore it
-        if(event.type !== 'DOMContentLoaded') {
-          event.preventDefault();
-          $location.path("/");
+      if(window.routes[next.originalPath]) {
+        if (!window.routes[next.originalPath].access.allowAnonymous && !$rootScope.user) {
+          //if its a refresh then ignore it
+          if(event.type !== 'DOMContentLoaded') {
+            event.preventDefault();
+            $location.path("/");
+          }
         }
       }
-        // }
-      // }
     });
     //only want to run this on page refreses to get the current user from
     //the server.
