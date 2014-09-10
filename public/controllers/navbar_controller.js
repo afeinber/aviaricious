@@ -6,7 +6,10 @@ var NavbarController = function(
   $route,
   $rootScope
 ) {
-  $scope.weDone = function() {
+
+  //This makes sure that we wait for the navbar to be initialized before we
+  //run the oppropriate javasctipts in common-sctripts.js
+  $scope.initNavbar = function() {
     $(document).trigger('doneWithHeader');
   };
 
