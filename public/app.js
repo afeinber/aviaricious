@@ -81,6 +81,7 @@
       if (!window.routes[next.originalPath].access.allowAnonymous && !$rootScope.user) {
         //if its a refresh then ignore it
         if(event.type === 'popstate') {
+          event.preventDefault();
           $location.path("/");
         }
       }
