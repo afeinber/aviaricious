@@ -6,7 +6,7 @@ var LandingController = function($location, Auth, $scope) {
 
   function hideSidebar() {
     //Sometimes the sidebar isnt there yet
-    if($('#sidebar')) {
+    if($('#sidebar').length > 0) {
       $('.fa-bars').hide();
       $('#sidebar').css('z-index', '1');
       $('ul.sidebar-menu').css('margin-top', '0');
@@ -25,8 +25,6 @@ var LandingController = function($location, Auth, $scope) {
     $('.fa-bars').show();
     $('#sidebar').show();
   });
-
-
 
 };
 
