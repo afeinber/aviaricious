@@ -15,9 +15,6 @@ var GameController = function(
   loadNewBirds();
 
 
-  Auth.currentUser().then(function(user){
-    ///
-  });
   //get four more birds from the factory.
   function loadNewBirds() {
     $('.img-holder').css('background', "");
@@ -60,7 +57,7 @@ var GameController = function(
       $($event.target).css('opacity', 0.2);
 
     } else {
-      //user guest incrrectly
+      //user guessed incrrectly
       $($event.target).parent().css('background','red');
       //make correct image green
       $('*[data-id=' + $scope.answer +']').parent().css('background', 'green');

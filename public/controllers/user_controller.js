@@ -1,5 +1,11 @@
 (function() {
-  var UserController = function($scope, userFactory, $location, flashFactory) {
+  var UserController = function(
+    $scope,
+    userFactory,
+    $location,
+    flashFactory,
+    $rootScope
+  ) {
 
     $scope.$on('$viewContentLoaded', function() {
       $('.fa-bars').hide();
@@ -20,7 +26,8 @@
               class: "success",
               message: "Congratulations! You've signed up successfully!"
             });
-
+          //now we have a user.
+          $rootScope.user = registeredUser;
           $location.path("/home");
         }, function(err) {
           flashFactory.setNowMessage(
@@ -35,6 +42,8 @@
     $scope.login = function() {
       userFactory.signin($scope.email, $scope.password)
         .then(function(user){
+          //now we have a user
+          $rootScope.user = user;
           $location.path("/home");
         }, function(err) {
           flashFactory.setNowMessage(
@@ -53,7 +62,8 @@
     "$scope",
     "userFactory",
     "$location",
-    "flashFactory"
+    "flashFactory",
+    "$rootScope"
   ];
   angular.module('aviariciousApp').
     controller('UserController', UserController);

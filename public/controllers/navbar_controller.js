@@ -1,36 +1,34 @@
-var NavbarController = function($scope, Auth, $location, flashFactory, $route) {
+var NavbarController = function(
+  $scope,
+  Auth,
+  $location,
+  flashFactory,
+  $route,
+  $rootScope
+) {
   $scope.weDone = function() {
-
-    $scope.userExists = true;
-
     $(document).trigger('doneWithHeader');
   };
 
   $scope.logout = function() {
     Auth.logout().then(function(user) {
+      $rootScope.user = null;
+      $scope.userExists = false;
       $location.path('/');
     }, function(error) {
       $flashFactory.setMessage("There was a problem signing you out.");
       $route.reload();
     });
   };
-  // $scope.$on('$routeChangeStart', function() {
-  //   Auth.currentUser().then(function(user) {
-  //     $scope.userExists = true;
-  //   });
-  // });
+
   $scope.$on('devise:unauthorized', function(event){
-    $scope.userExists = false;
+    $rootScope.user = null;
   });
   $scope.$on('devise:logout', function(event){
-    $scope.userExists = false;
+    $rootScope.user = null;
   });
-  $scope.$on('devise:login', function(event, currentUser) {
-    $scope.userExists = true;
-  });
- $scope.$on('devise:new-session', function(event, currentUser) {
-     $scope.userExists = true;
-  });
+
+//Show the sidebar.
  $scope.$on('$routeChangeStart', function() {
    $('.header').css('position', 'fixed');
    $('#sidebar').css('z-index', '0');
@@ -46,9 +44,10 @@ NavbarController.$inject = [
   'Auth',
   '$location',
   'flashFactory',
-  '$route'
+  '$route',
+  '$rootScope'
 ];
 
-// The Controller is part of the module.
+
 angular.module('aviariciousApp').
   controller('NavbarController', NavbarController);

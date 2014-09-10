@@ -10,6 +10,7 @@ var LandingController = function($location, Auth, $scope) {
     $('#sidebar').show();
   });
 
+  //this is onlt for non-logged in users
   Auth.currentUser()
     .then(function(user) {
       $location.path("/home");

@@ -9,6 +9,7 @@ var BirdController = function(
   favoritesFactory
 ) {
 
+  //make sure that you dont favorite something while the server is responding.
   var isBusy = true;
 
   birdFactory.getBird($location.search().sciName)
@@ -22,14 +23,6 @@ var BirdController = function(
     .error(function(err) {
       flashFactory.setMessage("Something went wrong. Please try refresing");
       $route.reload();
-    });
-
-  Auth.currentUser().
-    then(function(user) {
-      $scope.user = user;
-    }, function(err) {
-      $location.path("/");
-
     });
 
   $scope.play = function() {

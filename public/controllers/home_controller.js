@@ -10,18 +10,11 @@
 
     $scope.observations = [];
     $scope.numShown = 15;
-    //$('.header').css('position', 'fixed');
+
     var birds = [];
     var distance;
     var currentUser;
     var notableOnly = false;
-
-    // $('.header').css('position', 'fixed');
-    // $('#sidebar').css('z-index', '0');
-    // $('ul.sidebar-menu').css('margin-top', '75px;');
-    // if($('#sidebar').css('margin-left')!=='0px') {
-    //   $('.fa-bars').trigger('click');
-    // }
 
     //This is for the infinite scroll when we reach the bottom of the page
     $scope.loadMore = function() {
@@ -40,8 +33,6 @@
       bird = bird || {};
       return bird.photo_url || '../images/not_available.jpg';
     };
-
-    // $scope.getNotableObs = function(dist)
 
     $scope.selectDistance = function(dist, $event) {
       $('.distance-group .btn').removeClass('active');
@@ -81,7 +72,6 @@
       distance = 15;
       Auth.currentUser()
         .then(function(user) {
-            currentUser = user;
             getObservations();
           }, function(err) {
             $location.path('/');
