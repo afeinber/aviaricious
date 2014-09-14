@@ -77,6 +77,20 @@
       $rootScope.user = null;
     });
 
+    $rootScope.hideSidebar = function() {
+      //Sometimes the sidebar isnt there yet
+      if($('#sidebar').length > 0) {
+        $('.fa-bars').trigger('click');
+        $('.fa-bars').hide();
+      } else {
+        //so we wait
+        setTimeout(function() {
+          //and try again.
+          hideSidebar();
+        }, 20);
+      }
+    };
+
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
       if(window.routes[next.originalPath]) {
         if (!window.routes[next.originalPath].access.allowAnonymous && !$rootScope.user) {

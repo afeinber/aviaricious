@@ -37,12 +37,12 @@
             function responsiveView() {
                 var wSize = $(window).width();
                 if (wSize <= 768) {
-                    $('#container').addClass('sidebar-close');
+                    $('#container').addClass('sidebar-closed');
                     $('#sidebar > ul').hide();
                 }
 
                 if (wSize > 768) {
-                    $('#container').removeClass('sidebar-close');
+                    $('#container').removeClass('sidebar-closed');
                     $('#sidebar > ul').show();
                 }
             }

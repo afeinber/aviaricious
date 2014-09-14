@@ -55,26 +55,29 @@
 
   </head>
   <body>
-      <div ng-controller="NavbarController">
-        <div ng-include="'/views/_navbar.html'" onload="initNavbar()"></div>
+    <section id="container">
+          <div ng-controller="NavbarController">
+            <div ng-include="'/views/_navbar.html'" onload="initNavbar()"></div>
 
-      </div>
-        <section id="main-content">
-          <div ng-controller="FlashController" id="flashes" ng-show="flashFactory.areMessages()">
-            <!-- <section class="wrapper"> -->
-              <div class="row" ng-repeat="flash in flashFactory.getMessages()" style="margin-top: 80px;">
-                <div class="col-md-9">
-                    <div class="alert alert-{{flash.class}} alert-dissmissable">
-                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <p>{{flash.message}}</p>
-                    </div>
-                </div>
-              </div>
-            <!-- </section> -->
           </div>
 
-        <div ng-view></div>
+            <section id="main-content">
+              <div ng-controller="FlashController" id="flashes" ng-show="flashFactory.areMessages()">
+                <!-- <section class="wrapper"> -->
+                  <div class="row" ng-repeat="flash in flashFactory.getMessages()" style="margin-top: 80px;">
+                    <div class="col-md-9">
+                        <div class="alert alert-{{flash.class}} alert-dissmissable">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <p>{{flash.message}}</p>
+                        </div>
+                    </div>
+                  </div>
+                <!-- </section> -->
+              </div>
 
+            <div ng-view></div>
+
+        </section>
     </section>
     <!-- <script src="js/common-scripts.js"></script> -->
     <script class="include" src="js/daccordion.js"></script>

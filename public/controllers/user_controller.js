@@ -8,13 +8,12 @@
   ) {
 
     $scope.$on('$viewContentLoaded', function() {
-      $('.fa-bars').hide();
-      $('#sidebar').hide();
+     $scope.hideSidebar();
     });
 
-    $scope.$on('$routeChangeStart', function(next, current) {
+    $scope.$on('$routeChangeStart', function() {
+      $('.fa-bars').trigger('click');
       $('.fa-bars').show();
-      $('#sidebar').show();
     });
 
 

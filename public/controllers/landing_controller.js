@@ -1,29 +1,13 @@
 var LandingController = function($location, Auth, $scope) {
 
   $scope.$on('$viewContentLoaded', function() {
-    hideSidebar();
+    //inherit from root scope
+    $scope.hideSidebar();
   });
 
-  function hideSidebar() {
-    //Sometimes the sidebar isnt there yet
-    if($('#sidebar').length > 0) {
-      $('.fa-bars').hide();
-      $('#sidebar').css('z-index', '1');
-      $('ul.sidebar-menu').css('margin-top', '0');
-      $('.fa-bars').trigger('click');
-      // $('#sidebar').hide();
-    } else {
-      //so we wait
-      setTimeout(function() {
-        //and try again.
-        hideSidebar();
-      }, 20);
-    }
-  }
-
   $scope.$on('$routeChangeStart', function(next, current) {
+    $('.fa-bars').trigger('click');
     $('.fa-bars').show();
-    $('#sidebar').show();
   });
 
 };
