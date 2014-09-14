@@ -9,5 +9,13 @@ FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
+    sign_in_count 1
+    current_sign_in_at "2014-09-14 00:47:52"
+    last_sign_in_at "2014-09-14 00:47:52"
+    current_sign_in_ip IPAddr.new("207.38.196.140")
+    last_sign_in_ip IPAddr.new("207.38.196.140")
+    latitude 40.7622
+    longitude -73.9121
+
   end
 end

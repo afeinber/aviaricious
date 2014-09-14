@@ -86,7 +86,7 @@
         //so we wait
         setTimeout(function() {
           //and try again.
-          hideSidebar();
+          $rootScope.hideSidebar();
         }, 20);
       }
     };

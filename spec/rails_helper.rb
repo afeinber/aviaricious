@@ -45,8 +45,12 @@ RSpec.configure do |config|
   config.include SessionHelpers
 
   config.before(:each) do
-      stub_request(:get, /ebird.org/).to_rack(FakeEbird)
-    end
+    stub_request(:get, /ebird.org/).to_rack(FakeEbird)
+  end
+
+  config.mock_with :rspec do |mocks|
+    mocks.syntax = :should
+  end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
