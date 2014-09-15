@@ -2,7 +2,7 @@ require 'rake'
 
 namespace :birds do
   desc 'add one new bird to database'
-  task :add_new_bird, [:sci_name] => :environment do |t, args|
+  task :add_new_bird, [:sci_name] do |t, args|
     require 'ebird'
     require 'wikipedia'
 
