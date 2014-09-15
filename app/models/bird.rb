@@ -1,15 +1,6 @@
-# == Schema Information
-#
-# Table name: birds
-#
-#  id              :integer          not null, primary key
-#  photo_url       :string(255)
-#  common_name     :string(255)      not null
-#  scientific_name :string(255)      not null
-#
-
 class Bird < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
+  validates :scientific_name, :common_name, uniqueness: :true
 
   def self.search(query, name)
     if name == 'scientific'

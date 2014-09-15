@@ -5,18 +5,6 @@ namespace :birds do
   task :remove_stupid_images => :environment do
     require 'wikipedia'
 
-    def search_hash(h, search)
-      return h[search] if h.fetch(search, false)
-
-      h.keys.each do |k|
-        answer = search_hash(h[k], search) if h[k].is_a? Hash
-        return answer if answer
-      end
-
-      false
-    end
-
-
     Bird.all.each do |bird|
       count = 0
       # these are the stupid ones

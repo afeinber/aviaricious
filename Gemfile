@@ -44,6 +44,8 @@ gem "geocoder"
 
 gem "httparty"
 
+gem 'rake'
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
