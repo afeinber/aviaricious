@@ -10,12 +10,10 @@ class BirdsController < ApplicationController
   end
 
   def show
-    binding.pry
     @bird = Bird.find_by(scientific_name: params[:id])
 
     #if we dont have the bird in the database, go get it
     unless @bird.present?
-      binding.pry
       #note that this takes a while. I think this is O.K. because
       #it should ideally not happen  that much that a user attempts to view
       #a bird that isn't there.
