@@ -30,6 +30,7 @@
         }
       });
 
+      //maybe we didnt get a bird back from the database.
       bird = bird || {};
       return bird.photo_url || '../images/not_available.jpg';
     };
@@ -64,7 +65,13 @@
         );
       }
       observationsProm.success(function(obs){
-        $scope.observations = obs;
+        if(obs.length === 0) {
+          observationsFactory.getNYC(distance).success(function(nycObs) {
+            $scope.observations = nycObs;
+          });
+        } else {
+          $scope.observations = obs;
+        }
       });
     };
 

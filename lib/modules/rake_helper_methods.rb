@@ -11,14 +11,23 @@ module RakeHelperMethods
   end
 
   def get_image(bird)
-    binding.pry
-    image = Wikipedia.find(bird.scientific_name).images.first
-    return if !image.present?
-    thumb = JSON.parse Wikipedia::Client.new.request_image(image, iiurlwidth: 500, iiurlheight: 500)
-    pages = search_hash(thumb, "pages")
-    # binding.pry if count == 8
-    imageinfo = search_hash(pages, 'imageinfo')
-    imageinfo[0]['thumburl']
+    count = 0
+    photo = bird.photo_url
+
+    #dont want .ogg or .svg files
+    while photo =~ /.*(\.ogg|\.svg).*/ || photo.nil?
+      count += 1
+      #get image from wikipedia
+      image = Wikipedia.find(bird.scientific_name).images[count]
+      return unless image.present?
+      #now get the smaller image
+      thumb = JSON.parse Wikipedia::Client.new.request_image(image, iiurlwidth: 500, iiurlheight: 500)
+      pages = search_hash(thumb, "pages")
+      imageinfo = search_hash(pages, 'imageinfo')
+      photo =  imageinfo[0]['thumburl']
+    end
+
+    return photo
   end
 
   def get_song(bird)
@@ -32,3 +41,4 @@ module RakeHelperMethods
   end
 
 end
+
