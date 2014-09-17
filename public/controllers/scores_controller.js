@@ -17,7 +17,7 @@
 
     initializeGraph = function(data) {
       $(function () {
-          $('#container').highcharts({
+          $('#score-history').highcharts({
               chart: {
                   type: 'line'
               },
