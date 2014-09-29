@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   after_save :geocode
 
   def current_ip
-    binding.pry
     current_sign_in_ip.to_s
   end
 
