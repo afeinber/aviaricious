@@ -1,6 +1,6 @@
 (function aviariciousApp() {
   var app = angular.module('aviariciousApp', ['ngRoute', 'infinite-scroll', 'Devise']);
-  // angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 250);
+
   app.config(function($routeProvider, AuthProvider){
     window.routes = {
       '/': {
@@ -78,16 +78,38 @@
     });
 
     $rootScope.hideSidebar = function() {
+      if($('.fa-bars').is(':visible')) {
+        //Sometimes the sidebar isnt there yet
+        if($('#sidebar').length > 0) {
+          $('.fa-bars').trigger('click');
+          $('.fa-bars').hide();
+        } else {
+          //so we wait
+          setTimeout(function() {
+            //and try again.
+            $rootScope.hideSidebar();
+          }, 20);
+        }
+      }
+    };
+
+    $rootScope.showSidebar = function() {
+      if(!$('.fa-bars').is(':visible')) {
       //Sometimes the sidebar isnt there yet
-      if($('#sidebar').length > 0) {
-        $('.fa-bars').trigger('click');
-        $('.fa-bars').hide();
-      } else {
-        //so we wait
-        setTimeout(function() {
-          //and try again.
-          $rootScope.hideSidebar();
-        }, 20);
+        if($('#sidebar').length > 0) {
+          // $('.fa-bars').trigger('click');
+          var bars = $('.fa-bars');
+          bars.show().trigger('click');
+          if(!$('#sidebar > ul').is(":visible")) {
+            setTimeout(function() { bars.trigger('click');}, 10);
+          }
+        } else {
+          //so we wait
+          setTimeout(function() {
+            //and try again.
+            $rootScope.showSidebar();
+          }, 20);
+        }
       }
     };
 

@@ -64,7 +64,7 @@
             <section id="main-content">
               <div ng-controller="FlashController" id="flashes" ng-show="flashFactory.areMessages()">
                 <!-- <section class="wrapper"> -->
-                  <div class="row" ng-repeat="flash in flashFactory.getMessages()" style="margin-top: 80px;">
+                  <div class="row text-center" ng-repeat="flash in flashFactory.getMessages()" style="margin-top: 80px;">
                     <div class="col-md-9">
                         <div class="alert alert-{{flash.class}} alert-dissmissable">
                             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

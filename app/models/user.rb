@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :scores, dependent: :destroy
 
   geocoded_by :current_ip
-  before_save :geocode
+  after_update :geocode
 
   def current_ip
     current_sign_in_ip.to_s

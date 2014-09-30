@@ -14,6 +14,10 @@
       });
 
 
+    $scope.$on('$viewContentLoaded', function() {
+     $scope.showSidebar();
+    });
+
 
     initializeGraph = function(data) {
       $(function () {

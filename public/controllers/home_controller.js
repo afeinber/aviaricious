@@ -21,6 +21,10 @@
       $scope.numShown += 1;
     };
 
+    $scope.$on('$viewContentLoaded', function() {
+     $scope.showSidebar();
+    });
+
     $scope.photoUrl = function(sciName) {
       var bird;
       birds.forEach(function(element) {

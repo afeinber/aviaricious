@@ -11,10 +11,9 @@
      $scope.hideSidebar();
     });
 
-    $scope.$on('$routeChangeStart', function() {
-      $('.fa-bars').trigger('click');
-      $('.fa-bars').show();
-    });
+    // $scope.$on('$routeChangeStart', function() {
+    //   $scope.showSidebar();
+    // });
 
 
     $scope.sendRegistration = function() {

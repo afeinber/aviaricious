@@ -5,10 +5,9 @@ var LandingController = function($location, Auth, $scope) {
     $scope.hideSidebar();
   });
 
-  $scope.$on('$routeChangeStart', function(next, current) {
-    $('.fa-bars').trigger('click');
-    $('.fa-bars').show();
-  });
+  // $scope.$on('$routeChangeStart', function(next, current) {
+  //   $scope.showSidebar();
+  // });
 
 };
 

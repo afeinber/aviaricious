@@ -25,6 +25,10 @@ var BirdController = function(
       $route.reload();
     });
 
+  $scope.$on('$viewContentLoaded', function() {
+   $scope.showSidebar();
+  });
+
   $scope.play = function() {
     var birdSong = $('#bird-song')[0];
     if(birdSong.paused) {
