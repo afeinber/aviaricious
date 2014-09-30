@@ -7,9 +7,9 @@
     $rootScope
   ) {
 
-    $scope.$on('$viewContentLoaded', function() {
-     $scope.hideSidebar();
-    });
+    // $scope.$on('$viewContentLoaded', function() {
+    //  $scope.hideSidebar();
+    // });
 
     // $scope.$on('$routeChangeStart', function() {
     //   $scope.showSidebar();

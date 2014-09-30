@@ -1,9 +1,9 @@
 var LandingController = function($location, Auth, $scope) {
 
-  $scope.$on('$viewContentLoaded', function() {
-    //inherit from root scope
-    $scope.hideSidebar();
-  });
+  // $scope.$on('$viewContentLoaded', function() {
+  //   //inherit from root scope
+  //   $scope.hideSidebar();
+  // });
 
   // $scope.$on('$routeChangeStart', function(next, current) {
   //   $scope.showSidebar();

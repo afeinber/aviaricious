@@ -78,49 +78,55 @@
     });
 
     $rootScope.hideSidebar = function() {
-      if($('.fa-bars').is(':visible')) {
+
         //Sometimes the sidebar isnt there yet
-        if($('#sidebar').length > 0) {
+      if($('#sidebar').length > 0) {
+        if($('.fa-bars').is(':visible')) {
           $('.fa-bars').trigger('click');
           $('.fa-bars').hide();
-        } else {
-          //so we wait
-          setTimeout(function() {
-            //and try again.
-            $rootScope.hideSidebar();
-          }, 20);
         }
+      } else {
+        //so we wait
+        setTimeout(function() {
+          //and try again.
+          $rootScope.hideSidebar();
+        }, 20);
       }
     };
 
     $rootScope.showSidebar = function() {
-      if(!$('.fa-bars').is(':visible')) {
+
       //Sometimes the sidebar isnt there yet
-        if($('#sidebar').length > 0) {
+      if($('#sidebar').length > 0) {
+        if(!$('.fa-bars').is(':visible')) {
           // $('.fa-bars').trigger('click');
           var bars = $('.fa-bars');
           bars.show().trigger('click');
           if(!$('#sidebar > ul').is(":visible")) {
             setTimeout(function() { bars.trigger('click');}, 10);
           }
-        } else {
-          //so we wait
-          setTimeout(function() {
-            //and try again.
-            $rootScope.showSidebar();
-          }, 20);
         }
+      } else {
+        //so we wait
+        setTimeout(function() {
+          //and try again.
+          $rootScope.showSidebar();
+        }, 20);
       }
     };
 
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
+      $rootScope.showSidebar();
       if(window.routes[next.originalPath]) {
         if (!window.routes[next.originalPath].access.allowAnonymous && !$rootScope.user) {
           //if its a refresh then ignore it
+
           if(event.type !== 'DOMContentLoaded') {
             event.preventDefault();
             $location.path("/");
           }
+        } else if(window.routes[next.originalPath].access.allowAnonymous) {
+          $rootScope.hideSidebar();
         }
       }
     });

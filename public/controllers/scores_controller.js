@@ -14,9 +14,9 @@
       });
 
 
-    $scope.$on('$viewContentLoaded', function() {
-     $scope.showSidebar();
-    });
+    // $scope.$on('$viewContentLoaded', function() {
+    //  $scope.showSidebar();
+    // });
 
 
     initializeGraph = function(data) {

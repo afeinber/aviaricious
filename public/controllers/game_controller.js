@@ -37,9 +37,9 @@ var GameController = function(
     return some;
   }
 
-  $scope.$on('$viewContentLoaded', function() {
-   $scope.showSidebar();
-  });
+  // $scope.$on('$viewContentLoaded', function() {
+  //  $scope.showSidebar();
+  // });
 
   $scope.pick = function($event) {
     if($("#bird-song")[0].pause) {

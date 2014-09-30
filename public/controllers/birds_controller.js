@@ -24,9 +24,9 @@ var BirdsController = function(
     $scope.birdFilter[curName] = $scope.birdSearch;
   };
 
-  $scope.$on('$viewContentLoaded', function() {
-   $scope.showSidebar();
-  });
+  // $scope.$on('$viewContentLoaded', function() {
+  //  $scope.showSidebar();
+  // });
 };
 
 BirdsController.$inject = [
