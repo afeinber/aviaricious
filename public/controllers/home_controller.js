@@ -13,17 +13,17 @@
     $scope.numShown = 15;
 
     var birds = [];
-    var distance;
-    var notableOnly = false;
+    $scope.distance=15;
+    $scope.notableOnly = false;
 
     //This is for the infinite scroll when we reach the bottom of the page
     $scope.loadMore = function() {
-      $scope.numShown += 1;
+      $scope.numShown += 2;
     };
 
-    // $scope.$on('$viewContentLoaded', function() {
-    //  $scope.showSidebar();
-    // });
+    $scope.isSelected = function(d) {
+      return d === $scope.distance;
+    };
 
     $scope.photoUrl = function(sciName) {
       var bird;
@@ -39,38 +39,35 @@
       return bird.photo_url || '../images/not_available.jpg';
     };
 
-    $scope.selectDistance = function(dist, $event) {
-      $('.distance-group .btn').removeClass('active');
-      distance = dist;
-      if($event) { $($event.target).addClass('active'); }
+    $scope.selectDistance = function(dist) {
+      $scope.distance = dist;
       getObservations();
     };
 
-    $scope.selectNotable = function(isNotable, $event) {
-      $('.notable-group .btn').removeClass('active');
-      $($event.target).addClass('active');
-      notableOnly = isNotable;
+    $scope.selectNotable = function(notableOnly) {
+      $scope.notableOnly = notableOnly;
       getObservations();
     };
 
     var getObservations = function() {
       var observationsProm;
-      if(notableOnly) {
+      if($scope.notableOnly) {
         observationsProm = observationsFactory.getNotable(
           $rootScope.user.latitude,
           $rootScope.user.longitude,
-          distance
+          $scope.distance
         );
       } else {
         observationsProm = observationsFactory.getObservations(
           $rootScope.user.latitude,
           $rootScope.user.longitude,
-          distance
+          $scope.distance
         );
       }
       observationsProm.success(function(obs){
+        //This probably occured because we're in development and there were no observations.
         if(obs.length === 0) {
-          observationsFactory.getNYC(distance).success(function(nycObs) {
+          observationsFactory.getNYC($scope.distance).success(function(nycObs) {
             $scope.observations = nycObs;
           });
         } else {
@@ -80,7 +77,6 @@
     };
 
     function init() {
-      distance = 15;
       Auth.currentUser()
         .then(function(user) {
             $rootScope.user = user;

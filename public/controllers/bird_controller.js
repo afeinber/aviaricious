@@ -12,12 +12,22 @@ var BirdController = function(
   //make sure that you dont favorite something while the server is responding.
   var isBusy = true;
 
+  //start off in paused state
+  $scope.playClass = 'fa fa-play';
+
+  angular.element("#bird-song").bind('ended', function(){
+      // done playing
+      $scope.$apply(function() {
+        $scope.playClass = 'fa fa-play';
+      });
+  });
+
+
   birdFactory.getBird($location.search().sciName)
     .success(function(bird) {
       $scope.bird = bird.bird;
       $scope.song = $sce.trustAsResourceUrl(bird.bird.song);
       $scope.isFavorite = bird.favorite;
-      if($scope.isFavorite) { $('#fav-heart').css('color', 'tomato'); }
       isBusy = false;
     })
     .error(function(err) {
@@ -25,19 +35,20 @@ var BirdController = function(
       $route.reload();
     });
 
-  // $scope.$on('$viewContentLoaded', function() {
-  //  $scope.showSidebar();
-  // });
-
   $scope.play = function() {
-    var birdSong = $('#bird-song')[0];
+    //sorry for the jQuery...
+    var birdSong = angular.element('#bird-song')[0];
     if(birdSong.paused) {
-      $('.fa.fa-play').toggleClass('fa-play fa-pause');
+      $scope.playClass = 'fa fa-pause';
       birdSong.play();
     } else {
-      $('.fa.fa-pause').toggleClass('fa-play fa-pause');
+      $scope.playClass = 'fa fa-play';
       birdSong.pause();
     }
+  };
+
+  $scope.heartStyle = function() {
+    return ($scope.isFavorite ? {'color': 'tomato'} : {});
   };
 
   $scope.favorite = function() {
@@ -48,14 +59,12 @@ var BirdController = function(
         favoritesFactory.unfavorite($scope.bird)
           .success(function() {
             isBusy = false;
-            $('#fav-heart').css('color', '');
             $scope.isFavorite = false;
           });
       } else {
         favoritesFactory.favorite($scope.bird)
           .success(function() {
             isBusy = false;
-            $('#fav-heart').css('color', 'tomato');
             $scope.isFavorite = true;
 
           });

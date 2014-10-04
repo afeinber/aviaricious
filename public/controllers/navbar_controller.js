@@ -30,16 +30,6 @@ var NavbarController = function(
   $scope.$on('devise:logout', function(event){
     $rootScope.user = null;
   });
-
-//Show the sidebar.
- $scope.$on('$routeChangeStart', function() {
-   // $('.header').css('position', 'fixed');
-   // $('#sidebar').css('z-index', '0');
-   // $('ul.sidebar-menu').css('margin-top', '75px;');
-   // if($('#sidebar').css('margin-left')!=='0px') {
-   //   $('.fa-bars').trigger('click');
-   // }
- });
 };
 
 NavbarController.$inject = [

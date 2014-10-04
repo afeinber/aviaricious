@@ -12,9 +12,6 @@ var FavoritesController = function(
     { $scope: $scope, someFactory: favoritesFactory }
   );
 
-  // $scope.$on('$viewContentLoaded', function() {
-  //  $scope.showSidebar();
-  // });
 };
 
 FavoritesController.$inject = [

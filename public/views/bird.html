@@ -6,11 +6,11 @@
         <div class="row">
         <audio id="bird-song" type="audio/mp3" ng-src="{{song}}"></audio>
           <h1>{{bird.common_name}}</h1>
-          <i class="fa fa-heart" id="fav-heart" ng-click="favorite()"></i>
+          <i class="fa fa-heart" id="fav-heart" ng-click="favorite()" ng-style="heartStyle()"></i>
         </div>
         <div class="row">
           <div class="col-md-4 text-left">
-            <i class="fa fa-play" ng-click="play()"></i>
+            <i ng-class="playClass" ng-click="play()"></i>
           </div>
           <div class="col-md-4 text-center">
             <h4>{{bird.scientific_name}}</h4>

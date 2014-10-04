@@ -8,12 +8,10 @@ var GameController = function(
   $route
 ) {
 
-
   var gameLength = 10;
   var roundCount = 0;
   var numCorrect = 0;
   loadNewBirds();
-
 
   //get four more birds from the factory.
   function loadNewBirds() {
@@ -37,9 +35,6 @@ var GameController = function(
     return some;
   }
 
-  // $scope.$on('$viewContentLoaded', function() {
-  //  $scope.showSidebar();
-  // });
 
   $scope.pick = function($event) {
     if($("#bird-song")[0].pause) {

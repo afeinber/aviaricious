@@ -8,16 +8,16 @@
           <div class="row">
             <div class="col-md-6">
               <div class="btn-group distance-group"><p>Distance (km)</p>
-                <button type="button" ng-click="selectDistance(5, $event)" class="btn btn-default">5</button>
-                <button type="button" ng-click="selectDistance(10, $event)" class="btn btn-default">10</button>
-                <button type="button" ng-click="selectDistance(20, $event)" class="btn btn-default">20</button>
-                <button type="button" ng-click="selectDistance(30, $event)" class="btn btn-default">30</button>
+                <input type="button" value="5" ng-click="selectDistance(5)" ng-class="{'btn': true, 'btn-default': true, 'active': isSelected(5)}"></input>
+                <input type="button" value="10" ng-click="selectDistance(10)" ng-class="{'btn': true, 'btn-default': true, 'active': isSelected(10)}"></input>
+                <input type="button" value="20" ng-click="selectDistance(20)" ng-class="{'btn': true, 'btn-default': true, 'active': isSelected(20)}"></input>
+                <input type="button" value="30" ng-click="selectDistance(30)" ng-class="{'btn': true, 'btn-default': true, 'active': isSelected(30)}"></input>
               </div>
             </div>
             <div class="col-md-6">
               <div class="btn-group notable-group"><p>selection</p>
-                <button type="button" ng-click="selectNotable(true, $event)" class="btn btn-default">Notable</button>
-                <button type="button" ng-click="selectNotable(false, $event)" class="btn btn-default active">All birds</button>
+                <button type="button" ng-click="selectNotable(true)" ng-class="{'btn': true, 'btn-default': true, 'active': notableOnly}">Notable</button>
+                <button type="button" ng-click="selectNotable(false)" ng-class="{'btn': true, 'btn-default': true, 'active': !notableOnly}">All birds</button>
               </div>
             </div>
           </div>
