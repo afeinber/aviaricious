@@ -8,7 +8,7 @@ var birdListControllerFactory = function() {
     $scope.birds_busy = true;
     $scope.numShown = 20;
 
-    Auth.currentUser();
+    //Auth.currentUser();
 
     $scope.loadMore = function() {
       $scope.numShown += 1;
@@ -20,13 +20,17 @@ var birdListControllerFactory = function() {
 
     function init() {
       //the factory must implement a getBirds function
-      someFactory.getBirds()
-        .success(function(birds){
-          $scope.birds = birds;
-          $scope.birds_busy = false;
-        })
-        .error(function(data, status) {
-          console.log("There was an error getting the birds with status " + status);
+      Auth.currentUser().then(function(user) {
+        someFactory.getBirds()
+          .success(function(birds){
+            $scope.birds = birds;
+            $scope.birds_busy = false;
+          })
+          .error(function(data, status) {
+            console.log("There was an error getting the birds with status " + status);
+        });
+      }, function(e) {
+        $location.path('/');
       });
     }
     init();
