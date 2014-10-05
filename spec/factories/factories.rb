@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :bird do
-    common_name { Faker::Name.first_name }
-    scientific_name { Faker::Name.last_name }
+    common_name { Faker::Name.first_name + Faker::Name.last_name }
+    scientific_name { Faker::Name.last_name + Faker::Name.first_name }
     photo_url "http://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Bobolink_%28F%29_02.jpg/220px-Bobolink_%28F%29_02.jpg"
   end
   factory :user do
