@@ -7,11 +7,9 @@ class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :scores, dependent: :destroy
 
-  geocoded_by :current_ip
-  after_update :geocode
+  attr_accessor :ip_address
 
-  def current_ip
-    current_sign_in_ip.to_s
-  end
+  geocoded_by :ip_addresss
+  after_validation :geocode
 
 end

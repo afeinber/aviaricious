@@ -4,7 +4,6 @@
   app.config(function($routeProvider, AuthProvider){
     window.routes = {
       '/': {
-        controller: 'LandingController',
         templateUrl: "/views/landing.html",
         //This signifies that anybody can access this page
         access : {allowAnonymous : true}

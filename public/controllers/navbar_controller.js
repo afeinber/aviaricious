@@ -19,7 +19,7 @@ var NavbarController = function(
       $scope.userExists = false;
       $location.path('/');
     }, function(error) {
-      $flashFactory.setMessage("There was a problem signing you out.");
+      flashFactory.setMessage("There was a problem signing you out.");
       $route.reload();
     });
   };

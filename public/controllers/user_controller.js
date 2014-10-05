@@ -7,15 +7,6 @@
     $rootScope
   ) {
 
-    // $scope.$on('$viewContentLoaded', function() {
-    //  $scope.hideSidebar();
-    // });
-
-    // $scope.$on('$routeChangeStart', function() {
-    //   $scope.showSidebar();
-    // });
-
-
     $scope.sendRegistration = function() {
       userFactory.signup($scope.email, $scope.password)
         .then(function(registeredUser){
