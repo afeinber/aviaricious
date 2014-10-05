@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :ip_address
 
-  geocoded_by :ip_addresss
+  geocoded_by :ip_address
   after_validation :geocode
 
 end
